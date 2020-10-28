@@ -1,10 +1,6 @@
 ---
-title: Lista Ligada (Linked List) em C
+title: "Lista Ligada (Linked List) em C"
 date: 2019-02-22 18:47:38
-categories:
-  - college
-  - programming
-  - C
 layout: post
 ---
 
