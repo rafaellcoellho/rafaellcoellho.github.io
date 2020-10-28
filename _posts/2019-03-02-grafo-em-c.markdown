@@ -157,6 +157,7 @@ void Graph_InsertEdge(graph *self, uint32_t source, uint32_t destiny)
     LinkedList_Prepend(d, source);
 }
 {% endhighlight %}
+
 Note que se eu chamar a função passando source e destiny inexistentes, o programa dá um _segmentation fault_ violento. Mas só quem vai usar sou eu, então tá tudo de boas.
 
 ## Considerações finais
