@@ -34,7 +34,7 @@ uint32_t *LinkedList_Array(llist *self)
 
 ## Estruturas 
 
-Um grafo é um conjunto de vértices conectados por arestas. Existem várias maneiras de representar isso numa estrutura de dados, é possível mencionar _Lista de Adjacências_, _Lista de Incidencias_, _Matriz de Adjacências_ e _Matriz de Incidência_. A primeira é muito interessante pois é possível fazer várias operações comuns (obter grau de um vértice etc) em grafos de maneira satisfatória, sendo a mais adequada das quatro para ser uma implementação generalista de um grafo. 
+Um grafo é um conjunto de vértices conectados por arestas. Existem várias maneiras de representar isso numa estrutura de dados, é possível mencionar _Lista de Adjacências_, _Lista de incidência_, _Matriz de Adjacências_ e _Matriz de Incidência_. A primeira é muito interessante pois é possível fazer várias operações comuns (obter grau de um vértice etc) em grafos de maneira satisfatória, sendo a mais adequada das quatro para ser uma implementação generalista de um grafo. 
 
 Uma lista de adjacências é um array de vértices, e cada posição do array contém um ponteiro para uma lista ligada contendo as adjacências do vértice em si. É mais fácil trabalhar com exemplos:
 
@@ -62,7 +62,7 @@ struct graph {
 
 ## E como alocar dinamicamente um array de ponteiros?
 
-Nessa hora que o bixo pega. A lógica é simples mas pode ser difícil de lembrar se você não programa em C frequentemente. Quem já teve que alocar dinamicamente uma matriz sabe como fazer. 
+Nessa hora que o bicho pega. A lógica é simples mas pode ser difícil de lembrar se você não programa em C frequentemente. Quem já teve que alocar dinamicamente uma matriz sabe como fazer. 
 
 A implementação nada mais é que um ponteiro para um ponteiro. Primeiro você aloca como um array normal, usando um:
 
@@ -73,7 +73,7 @@ matrix = malloc(sizeof(llist *) * n_vertices);
 
 A matriz tem que acomodar um ponteiro para uma lista ligada, e tem que ter o tamanho do número de vértices do grafo. 
 
-Depois disso você precisa percorer cada posição do array e colocar uma lista ligada vazia em cada posição. O detalhe é que caso uma dessas alocações falhe, você tem que ir "voltando" dando free no que você já alocou. Como eu já implementei a alocação da lista ligada, ficou assim: 
+Depois disso você precisa percorrer cada posição do array e colocar uma lista ligada vazia em cada posição. O detalhe é que caso uma dessas alocações falhe, você tem que ir "voltando" dando free no que você já alocou. Como eu já implementei a alocação da lista ligada, ficou assim: 
 
 {% highlight c %}
 for(uint32_t i = 0; i < n_vertices; i++) {
@@ -87,7 +87,7 @@ for(uint32_t i = 0; i < n_vertices; i++) {
 }
 {% endhighlight %}
 
-No fim, adicionando umas checagem de NULL e retornando a "matriz":
+No fim, adicionando umas verificação de `NULL` e retornando a "matriz":
 
 {% highlight c %}
 llist **allocate_matrix(uint32_t n_vertices) 
@@ -141,7 +141,7 @@ void Graph_Destroy(graph *self)
 }
 {% endhighlight %}
 
-Agora é possivel instanciar um grafo e utilizar como um "objeto".
+Agora é possível instanciar um grafo e utilizar como um "objeto".
 
 ## Inserindo arestas
 
