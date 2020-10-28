@@ -1,5 +1,5 @@
 ---
-title: "Hello World!"
+title: "Hello world!"
 date: 2019-01-11
 layout: post
 ---

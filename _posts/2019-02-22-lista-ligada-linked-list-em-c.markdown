@@ -1,5 +1,5 @@
 ---
-title: "Lista Ligada (Linked List) em C"
+title: "Linked list em C"
 date: 2019-02-22 18:47:38
 layout: post
 ---
