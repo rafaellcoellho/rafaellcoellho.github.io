@@ -1,0 +1,173 @@
+---
+title: Grafo em C usando lista de adjacências
+date: 2019-03-02 22:19:30
+layout: post
+---
+
+
+Como falei no post anterior, meu objetivo ao implementar uma lista ligada era para na sequência implementar algoritmos relacionados a grafos. Mas antes disso eu preciso implementar o grafo em si.
+
+A implementação não é indicada para ser utilizada em coisas sérias, é apenas uma prova de conceito. Eu não me importei em verificar se ponteiros são nulos ou se tentaram inserir uma aresta num vértice inexistente. 
+
+Uma boa fonte para entender grafos está [aqui](https://www.tutorialspoint.com/graph_theory/index.htm). 
+
+No post anterior eu acabei por esquecer de implementar uma operação de lista ligada que seria útil na implementação do grafo, então vou começar por ela.
+
+## Como saber que itens uma lista ligada tem?
+
+Acontece que eu preciso percorrer os itens da linked list para o algoritmo que eu quero implementar. A maneira mais simples de fazer isso (não a mais eficiente e elegante) é percorrer toda a lista e retornar um array com os itens.
+
+{% highlight c %}
+uint32_t *LinkedList_Array(llist *self)
+{
+    uint32_t *array = malloc(sizeof(uint32_t) * self->size);
+    link p_aux = self->head;
+
+    for(uint32_t i = 0; i < self->size; i++) {
+        array[i] = p_aux->item;
+        p_aux = p_aux->next;
+    }
+    
+    return array;
+}
+{% endhighlight %}
+
+## Estruturas 
+
+Um grafo é um conjunto de vértices conectados por arestas. Existem várias maneiras de representar isso numa estrutura de dados, é possível mencionar _Lista de Adjacências_, _Lista de Incidencias_, _Matriz de Adjacências_ e _Matriz de Incidência_. A primeira é muito interessante pois é possível fazer várias operações comuns (obter grau de um vértice etc) em grafos de maneira satisfatória, sendo a mais adequada das quatro para ser uma implementação generalista de um grafo. 
+
+Uma lista de adjacências é um array de vértices, e cada posição do array contém um ponteiro para uma lista ligada contendo as adjacências do vértice em si. É mais fácil trabalhar com exemplos:
+
+![grafo](/images/2019-03-02-grafo-em-c/01.png)
+
+A lista de adjacência seria a seguinte: 
+
+```
+V[1]    2->4->              // O vertice 1 se liga ao vertice 2 e 4
+V[2]    1->3->4->5->        // O vertice 2 se liga ao 1, 3, 4 e 5
+V[3]    2->5->              // etc...
+V[4]    1->2->5->
+V[5]    2->3->4->
+```
+
+Essa seria a estrutura em C:
+
+{% highlight c %}
+struct graph {
+    uint32_t n_edges;
+    uint32_t n_vertices;
+    llist **array_vertices;
+};
+{% endhighlight %}
+
+## E como alocar dinamicamente um array de ponteiros?
+
+Nessa hora que o bixo pega. A lógica é simples mas pode ser difícil de lembrar se você não programa em C frequentemente. Quem já teve que alocar dinamicamente uma matriz sabe como fazer. 
+
+A implementação nada mais é que um ponteiro para um ponteiro. Primeiro você aloca como um array normal, usando um:
+
+{% highlight c %}
+llist **matrix;
+matrix = malloc(sizeof(llist *) * n_vertices);
+{% endhighlight %}
+
+A matriz tem que acomodar um ponteiro para uma lista ligada, e tem que ter o tamanho do número de vértices do grafo. 
+
+Depois disso você precisa percorer cada posição do array e colocar uma lista ligada vazia em cada posição. O detalhe é que caso uma dessas alocações falhe, você tem que ir "voltando" dando free no que você já alocou. Como eu já implementei a alocação da lista ligada, ficou assim: 
+
+{% highlight c %}
+for(uint32_t i = 0; i < n_vertices; i++) {
+    matrix[i] = LinkedList_Create();
+    if (matrix[i] == NULL) {
+        for(uint32_t j= 0; j<i; j++) 
+            LinkedList_Destroy(matrix[j]);
+        free(matrix);
+        return NULL;
+    }
+}
+{% endhighlight %}
+
+No fim, adicionando umas checagem de NULL e retornando a "matriz":
+
+{% highlight c %}
+llist **allocate_matrix(uint32_t n_vertices) 
+{
+    llist **matrix;
+
+    matrix = malloc(sizeof(llist *) * n_vertices);
+    if (matrix == NULL) 
+        return NULL;
+     
+    for(uint32_t i = 0; i < n_vertices; i++) {
+        matrix[i] = LinkedList_Create();
+        if (matrix[i] == NULL) {
+            for(uint32_t j= 0; j<i; j++) 
+                LinkedList_Destroy(matrix[j]);
+            free(matrix);
+            return NULL;
+        }
+    }
+    
+    return matrix;
+}
+{% endhighlight %}
+
+## Criando e destruindo
+
+Depois que nos livramos desse fardo que é a alocação da matriz de vértices, criar e destruir um grafo é mais do mesmo:
+
+{% highlight c %}
+graph *Graph_Create(uint32_t n_vertices) 
+{
+    graph *self = malloc(sizeof(graph));
+    self->n_edges = 0;
+    self->n_vertices = n_vertices;
+    self->array_vertices = allocate_matrix(n_vertices);
+
+    if(self->array_vertices == NULL) {
+        free(self);
+        return NULL;
+    } else {
+        return self;
+    }
+}
+
+void Graph_Destroy(graph *self) 
+{
+    for(uint32_t i = 0; i < self->n_vertices; i++) 
+        LinkedList_Destroy(self->array_vertices[i]);
+    free(self->array_vertices);
+    free(self);
+}
+{% endhighlight %}
+
+Agora é possivel instanciar um grafo e utilizar como um "objeto".
+
+## Inserindo arestas
+
+Uma operação tão boba. Escolhendo os dois vértices para ligar, u e v por exemplo. Vou na lista ligada de u adicionando v, e vice-versa.
+
+{% highlight c %}
+void Graph_InsertEdge(graph *self, uint32_t source, uint32_t destiny) 
+{   
+    llist *s = self->array_vertices[source];
+    llist *d = self->array_vertices[destiny];
+
+    LinkedList_Prepend(s, destiny);
+    LinkedList_Prepend(d, source);
+}
+{% endhighlight %}
+Note que se eu chamar a função passando source e destiny inexistentes, o programa dá um _segmentation fault_ violento. Mas só quem vai usar sou eu, então tá tudo de boas.
+
+## Considerações finais
+
+O próximo passo é implementar algum algoritmo. Vou usar [esse](https://github.com/rafaellcoellho/graph) repositório para deixar o código disponível, e ir adicionando algoritmos conforme for postando. 
+
+No post passado eu falei que estava usando o [Ceedling](https://github.com/ThrowTheSwitch/Ceedling). Acontece que build systems **_são um inferno_**. O ceedling funcionou bem para aquele projeto e é um ótimo software, mas como é do nicho do _firmware_ e não muito popular acaba tendo carência de quantidade de informação na internet.
+
+Resolvi fazer minha ultima tentativa: [meson](https://mesonbuild.com/). É relativamente popular, tem uma documentação orientada a exemplos e casos comuns, alguns tutoriais no medium...
+
+Para testar migrei o projeto anterior para ele. Esse projeto também faz uso do mesmo. Quem sabe eu faço um post no futuro sobre casos de uso.
+
+## Referências 
++ [tutorialspoint.com/graph_theory/](https://www.tutorialspoint.com/graph_theory/index.htm)
