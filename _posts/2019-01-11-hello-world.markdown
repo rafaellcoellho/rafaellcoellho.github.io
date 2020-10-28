@@ -6,7 +6,7 @@ layout: post
 
 Jogo rápido: 
 
-+ **_Motivação_**: Final de semana passado eu quebrei o meu fedora (quem nunca né?) tentando configurar o [lightdm]. Tive que aprender a entrar no fedora usando o "[Single-User Mode]" para consertar o problema. Me ocorreu que eu poderia anotar a solução dos problemas que encontro no dia a dia para a posterioridade. 
++ **_Motivação_**: Final de semana passado eu quebrei o meu fedora (quem nunca?) tentando configurar o [lightdm]. Tive que aprender a entrar no fedora usando o "[Single-User Mode]" para consertar o problema. Me ocorreu que eu poderia anotar a solução dos problemas que encontro no dia a dia para a posterioridade. 
 
 + **_Expectativa_**: Nenhuma. 
 
