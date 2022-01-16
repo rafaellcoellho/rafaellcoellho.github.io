@@ -3,7 +3,7 @@ layout: default
 ---
 <main class="index">
   <section class="article-list">
-    <h1>Blog do Rafael Coelho</h1>
+    <h1>{{ site.title }}</h1>
     {% for post in site.posts %}
       <div class="article">
         <span class="date"> {% include data.html data=post.date %} </span>
@@ -16,14 +16,14 @@ layout: default
     <img
       src="{{site.url}}/images/avatar.jpg"
       alt="Meu avatar: garoto palido e tatuado seguranmdo uma guitarra"
-      width="148"
+      width="176"
       height="148"
     >
     <dl class="external-links">
       <dt>email</dt>
       <dd><a href="mailto:rafaellcoellho@gmail.com">rafaellcoellho@gmail.com</a></dd>
       <dt>github</dt>
-      <dd><a href="https://github.com/rafaellcoellho"></a>rafaellcoellho</dd>
+      <dd><a href="https://github.com/rafaellcoellho" target="_blank">rafaellcoellho</a></dd>
     </dl>
   </aside>
 </main>
