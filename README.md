@@ -1,3 +1,10 @@
+# Blog do Rafael Coelho
+
+Construido usando Jekyll. Layout baseado no
+[blog do Drew DeVault's](https://drewdevault.com/).
+
+## Configuração
+
 #### Instalar o jekyll
 
 ```
@@ -13,5 +20,5 @@ $ bundle
 #### Rodar localmente
 
 ```
-$ bundle exec jekyll serve
+$ bundle exec jekyll serve --livereload
 ```

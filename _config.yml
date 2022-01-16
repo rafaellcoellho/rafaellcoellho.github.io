@@ -1,10 +1,10 @@
-title: Rafael Coelho
+title: Blog do Rafael Coelho
 email: rafaellcoellho@gmail.com
-description: >-
-  ( ͡° ͜ʖ ͡°)
+description: ""
+
 baseurl: ""
 url: ""
-github_username:  rafaellcoellho
+github_username: rafaellcoellho
 
 theme: minima
 plugins:
