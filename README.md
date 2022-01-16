@@ -13,5 +13,5 @@ $ bundle
 #### Rodar localmente
 
 ```
-$ bundle exec jekyll serve
+$ bundle exec jekyll serve --livereload
 ```
