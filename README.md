@@ -20,5 +20,5 @@ $ bundle
 #### Rodar localmente
 
 ```
-$ bundle exec jekyll serve --livereload
+$ bundle exec jekyll serve --livereload --drafts
 ```
