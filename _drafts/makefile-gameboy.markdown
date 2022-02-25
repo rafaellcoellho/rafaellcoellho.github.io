@@ -1,5 +1,5 @@
 ---
-title: "Aprendendo o básico sobre makefiles"
+title: "Aprendendo o básico de makefile"
 layout: post
 ---
 
@@ -272,7 +272,5 @@ clean:
 ```
 
 ## Referências 
-+ [video do MVG sobre homebrew para GameBoy](https://www.youtube.com/watch?v=FzPTK91EJY8)
-+ [docs do gbdk-2020](https://gbdk-2020.github.io/gbdk-2020/docs/api/)
 + [docs da ferramenta make](https://www.gnu.org/software/make/manual/)
 + [tutorial de como funciona regra implícita no make](https://rebelsky.cs.grinnell.edu/musings/cnix-make-implicit-rules)
