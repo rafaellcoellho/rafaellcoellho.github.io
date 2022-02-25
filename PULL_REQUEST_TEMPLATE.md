@@ -1,3 +1,4 @@
-- [] Está na pasta `_posts`
-- [] Adicionou todas as imagens na pasta `images`
-- [] Passou texto num corretor ortográfico e corrigiu erros
+- [ ] Está na pasta `_posts`
+- [ ] Adicionou todas as imagens na pasta `images`
+- [ ] Está na primeira pessoa do singular
+- [ ] Passou texto num corretor ortográfico e corrigiu erros
