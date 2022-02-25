@@ -4,7 +4,7 @@ layout: post
 ---
 
 Ao decorrer dos anos eu já precisei usar/escrever makefiles várias vezes. 
-Mas eu nunca entendi bem a sintáxe e nunca parei para estudar.
+Mas eu nunca entendi bem a sintaxe e nunca parei para estudar.
 Decidi escrever esse post para aprender melhor.
 
 Nada melhor para aprender do que encontrar uma motivação em um projeto pessoal.
@@ -13,7 +13,7 @@ Inspirado pelo Modern Vintage Gamer nesse
 makefile simples para compilar jogos de GameBoy escritos em C usando o GBDK-2020.
 
 Criei um [repositório](https://github.com/rafaellcoellho/template-c-gameboy) 
-com um projeto exemplo para usar como template para outros projetos.
+com um projeto exemplo para usar como modelo para outros projetos.
 
 ## Variáveis 
 
@@ -27,7 +27,7 @@ A sintaxe de uma variável é a seguinte:
 NOME_DA_VARIAVEL = valor
 ```
 
-O nome das variáveis é case sensitive, mas por convensão são sempre nomeadas 
+O nome das variáveis é case sensitive, mas por convenção são sempre nomeadas 
 em caixa alta. O valor é uma string. Para utilizar o valor das variáveis é só usar 
 `$(NOME_DA_VARIAVEL)`.
 
@@ -92,9 +92,9 @@ mas é possível entender melhor com o exemplo a seguir:
 ARQUIVOS_OBJ=$(patsubst $(DIRETORIO_SOURCES)/%.c, $(DIRETORIO_OBJ)/%.o, $(ARQUIVOS_C))
 ```
 
-O objetivo é transformar todos os arquivos de código fonte (.c) em arquivos 
+O objetivo é transformar todos os arquivos de código-fonte (.c) em arquivos 
 objeto (.o). Então no **pattern** passamos `$(DIRETORIO_SOURCES)/%.c` para 
-coincidir com todos os arquivos no **text**, que é o conteúdo da variável 
+coincidir com todos os arquivos no **text**, o conteúdo da variável 
 *ARQUIVOS_C* que criei anteriormente. O **replacemnt** é o formato que os 
 arquivos .o devem ter na pasta build. O resultado seria:
 
@@ -104,7 +104,7 @@ ARQUIVOS_OBJ = build/main.o build/oi_mundo.o
 
 ## Regras
 
-Agora vou começar a escrever as **regra de compilação**. Como indicado no 
+Agora vou começar a escrever as **regras de compilação**. Como indicado no 
 [manual](https://www.gnu.org/software/make/manual/make.html#Rule-Example) 
 cada regra segue a sintaxe:
 
@@ -114,10 +114,10 @@ targets : prerequisites
   …
 ```
 
-+ **targets**: Normalmente é o nome do arquivo que é resultado dessa regra. 
++ **targets**: normalmente é o nome do arquivo resultado dessa regra. 
 Mas também pode ser uma ação;
-+ **prerequisites**: Arquivos de entrada ou outro **target**;
-+ **recipe**: Comando para ser interpretados pelo shell. Por padrão o 
++ **prerequisites**: arquivos de entrada ou outro **target**;
++ **recipe**: comando para ser interpretados pelo shell. Por padrão o 
 make usa o `/bin/sh` ao executar.
 
 A primeira regra a ser é a principal:
@@ -129,7 +129,7 @@ all: criar_diretorio_build $(ARQUIVO_GB)
 O primeiro pré-requisito é `criar_diretorio_build`, logo em seguida temos o 
 arquivo do jogo.
 
-Pra criar o *ARQUIVO_GB* na primeira regra, o makefile precisa saber como 
+Para criar o *ARQUIVO_GB* na primeira regra, o makefile precisa saber como 
 gerar esse arquivo. Então escrevi a regra:
 
 ```
@@ -141,7 +141,7 @@ Essa regra pode ser lida assim: para gerar o *ARQUIVO_GB*, passo como
 entrada *ARQUIVOS_OBJ* e executa o comando 
 `$(COMPILADOR) $(FLAGS_DO_COMPILADOR) -o $(ARQUIVO_GB) $(ARQUIVOS_OBJ)`.
 
-Para facilitar o entendimento, a regra anterior seria o equivalante a escrever isso:
+Para facilitar o entendimento, a regra anterior seria o equivalente a escrever isso:
 
 ```
 foo.gb: build/main.o build/oi_mundo.o
@@ -162,14 +162,12 @@ objeto.o: requisito.c
   $(COMPILADOR) $(FLAGS_DO_COMPILADOR) -o $@ $<
 ```
 
-O seus significados seria:
-
 + **$@**: O valor do target (objeto.o);
 + **$<**: O valor do pré-requisito (requisito.c).
 
 ## Regras Implícitas
 
-Partindo da ideias de que eu fosse executar os comandos de compilação manualmente, 
+Partindo da ideia de que eu fosse executar os comandos de compilação manualmente, 
 ficaria assim:
 
 ```
@@ -178,7 +176,7 @@ $ gbdk/bin/lcc -Wa-l -Wl-m -Wf--debug -Wl-y -Wl-w -DUSE_SFR_FOR_REG -c -o build/
 ```
 
 Então o objetivo aqui é criar uma regra para gerar um comando para cada 
-arquivo objeto sendo construido. 
+arquivo objeto sendo construído. 
 
 Para ser mais didático, vou partir dessas regras mais simples:
 
@@ -191,12 +189,12 @@ build/oi_mundo.o: src/oi_mundo.c
 ```
 
 O problema dessa abordagem é que ao adicionar um novo arquivo terei que 
-escrever mais um regra. Para evitar isso posso usar a sintaxe do makefile 
-para compilar qualquer quantidade arbritária de arquivos. Com a vantagem 
+escrever mais uma regra. Para evitar isso posso usar a sintaxe do makefile 
+para compilar qualquer quantidade arbitrária de arquivos. Com a vantagem 
 do make não executar regras novamente se os pré-requisitos não mudaram 
-desde a ultima vez, deixando esse processo muito mais eficiente.
+desde a última vez, deixando esse processo muito mais eficiente.
 
-Mas como fazer isso? Através do conseito de 
+Mas como fazer isso? Através do conceito de 
 [**regras implícitas**](https://www.gnu.org/software/make/manual/html_node/Implicit-Rules.html). 
 Um bom tutorial de como isso funciona está [aqui](https://rebelsky.cs.grinnell.edu/musings/cnix-make-implicit-rules).
 
@@ -208,12 +206,12 @@ build/%.o: src/%.c
 ```
 
 Essa regra esta definindo que para cada arquivo na pasta build que coincide 
-com o pattern de `%.o`, vamos ter como pré-requisito um outro arquivo na 
+com o pattern de `%.o`, vamos ter como pré-requisito outro arquivo na 
 pasta src que coincide com o pattern `%.c` e vamos executar o comando 
 `gbdk/bin/lcc -Wa-l -Wl-m -Wf--debug -Wl-y -Wl-w -DUSE_SFR_FOR_REG -c -o  $@ $<` 
 substituindo o target (`$@`) e pré-requisito (`$<`).
 
-Por fim substituindo pelas variáveis já criadas no inicio:
+Por fim substituindo pelas variáveis já criadas no início:
 
 ```
 $(DIRETORIO_OBJ)/%.o: $(DIRETORIO_SOURCES)/%.c
@@ -222,7 +220,7 @@ $(DIRETORIO_OBJ)/%.o: $(DIRETORIO_SOURCES)/%.c
 
 ## Regra como executor de comandos
 
-Mas ainda falta algumas regras extras:
+Mas ainda faltam algumas regras extras:
 
 ```
 criar_diretorio_build:
