@@ -1,5 +1,6 @@
 ---
 title: "Aprendendo o básico de makefile"
+date: 2022-02-24 22:05:44
 layout: post
 ---
 
