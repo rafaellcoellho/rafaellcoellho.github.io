@@ -121,17 +121,20 @@ Mas também pode ser uma ação;
 + **recipe**: comando para ser interpretados pelo shell. Por padrão o 
 make usa o `/bin/sh` ao executar.
 
-A primeira regra a ser é a principal:
+A primeira regra que escrevi é essa:
 
 ```
 all: criar_diretorio_build $(ARQUIVO_GB)
 ```
 
-O primeiro pré-requisito é `criar_diretorio_build`, logo em seguida temos o 
-arquivo do jogo.
+O primeiro pré-requisito é `criar_diretorio_build` que vou explicar mais ao 
+final e logo em seguida temos o arquivo do jogo. O foco aqui é entender que 
+o `all` é a regra principal do makefile, e ela comunica que primeiro precisa 
+criar a pasta para armazenar os artefatos e em seguida criar o arquivo do 
+do jogo.
 
-Para criar o *ARQUIVO_GB* na primeira regra, o makefile precisa saber como 
-gerar esse arquivo. Então escrevi a regra:
+Para criar o *ARQUIVO_GB*, o makefile precisa saber como 
+gerar esse arquivo. Então escrevi a segunda regra:
 
 ```
 $(ARQUIVO_GB): $(ARQUIVOS_OBJ)
