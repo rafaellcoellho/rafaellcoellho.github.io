@@ -127,11 +127,10 @@ A primeira regra que escrevi é essa:
 all: criar_diretorio_build $(ARQUIVO_GB)
 ```
 
-O primeiro pré-requisito é `criar_diretorio_build` que vou explicar mais ao 
-final e logo em seguida temos o arquivo do jogo. O foco aqui é entender que 
-o `all` é a regra principal do makefile, e ela comunica que primeiro precisa 
-criar a pasta para armazenar os artefatos e em seguida criar o arquivo do 
-do jogo.
+O primeiro pré-requisito é `criar_diretorio_build` e logo em seguida temos o 
+arquivo do jogo. O foco aqui é entender que o `all` é a regra principal do 
+makefile e ela comunica que primeiro é preciso criar a pasta para armazenar 
+os artefatos para em seguida criar o arquivo do jogo.
 
 Para criar o *ARQUIVO_GB*, o makefile precisa saber como 
 gerar esse arquivo. Então escrevi a segunda regra:
