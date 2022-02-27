@@ -190,7 +190,7 @@ O make tem uma opção onde é possível passar qual arquivo vai ser lido pelo c
 $ make -f NomeDoArquivo.mk
 ```
 
-Por convenção usamos a extensão `.mk` para outros arquivos de makefile no mesmo projeto.
+Por convenção usei a extensão `.mk` para outros arquivos de makefile no mesmo projeto.
 
 Nesse [projeto de exemplo] resolvi separar o executor de comandos do makefile 
 que compila os arquivos de código-fonte. Considerando a estrutura de pastas:
