@@ -1,5 +1,6 @@
 ---
 title: "Makefile como executor de comandos"
+date: 2022-02-26 23:34:29
 layout: post
 ---
 
