@@ -4,16 +4,15 @@ date: 2022-02-26 23:34:29
 layout: post
 ---
 
-O make é uma ferramenta de automação de compilação de acordo com a [wikipedia]. 
-Mas ela pode ser útil mesmo quando não é preciso compilar nada. É possível 
-usar como um executor de comandos.
+O make é uma "ferramenta de automação de compilação" segundo a [wikipedia]. 
+Mas ela pode ser útil mesmo quando não é preciso compilar nada. 
 
-A vantagem de usar o make para fazer isso é por ser comunmente encontrada em 
-istribuições linux. Além de fácil de ler, escrever e manter um makefile para 
-esse objetivo.
+É possível usar o make como um executor de comandos. A vantagem de usar o make 
+para fazer isso é por ser comumente encontrada em distribuições Linux. Além de 
+fácil de ler, escrever e manter um makefile para esse objetivo.
 
-Um exemplo desse tipo de utilização pode ser encontrado no projeto [pydantic]. 
-Vou usar como exemplo o [makefile deles na versão 1.9.0]:
+Um exemplo de utilização pode ser encontrado no projeto [pydantic]. 
+Vou usar como exemplo o [makefile na versão 1.9.0 da lib]:
 
 ```
 .DEFAULT_GOAL := all
@@ -55,36 +54,36 @@ all: lint mypy testcov
 
 ## Como o make executa uma regra
 
-Considerando que estou na pasta do projeto do pydantic e executo o comando:
+Considerando que estou na pasta raiz do projeto do pydantic e executo o comando:
 
 ```
 $ make
 ```
 
 O make procura a primeira regra no arquivo para começar a executar. Isso é 
-chamado de **default goal**.
+chamado **default goal**.
 
 No makefile do pydantic, ele usa a variável especial chamada `.DEFAULT_GOAL` 
-para apontar para qual regra o make deve executar primeiro. Mesmo que as 
-regras de lint, mypy e testcov venham antes da regra all elas serão executadas 
-depois.
+para apontar para qual regra o make deve executar primeiro. Apesar das
+regras de `lint`, `mypy` e `testcov` estarem escritas antes da regra `all` 
+elas serão executadas depois.
 
-## Como executar uma regra especifica
+## Como executar uma regra específica
 
-Caso eu queira executar só a regra de testcov:
+Caso eu queira executar só a regra de `testcov`:
 
 ```
 $ make testcov
 ```
 
 Nesse caso o make vai executar apenas a regra **testcov** e seu target
-com dependencia **test**.
+com dependência **test**.
 
 ## Targets .PHONY
 
-A sintaxe do `.PHONY` é utilizada para sinalizar que o target não 
-é um nome do arquivo. Isso evita um possível conflito com o nome de um 
-arquivo real e otimiza performace. A sintaxe:
+A sintaxe `.PHONY` é utilizada para sinalizar que o target não 
+é um nome de arquivo. Isso evita um possível conflito com o nome de um 
+arquivo real e otimiza desempenho. A sintaxe:
 
 ```
 .PHONY nome_da_acao
@@ -102,8 +101,8 @@ Uma maneira de evitar isso é usar a flag `-s` ou `--silent`:
 $ make --silent
 ```
 
-Caso queira que apenas exiba e não execute os comandos, existe as flags 
-`-n` or `--just-print`:
+Caso queira que apenas exiba e não execute os comandos, existem a flag 
+`-n` ou `--just-print`:
 
 ```
 $ make --just-print
@@ -114,8 +113,8 @@ $ make --just-print
 Já saindo do exemplo do makefile do pydantic e entrando em outras dicas.
 
 Fuçando na web existem vários exemplos de maneiras de adicionar um comando de 
-help automáticamente num makefile. Um dos mais interessantes que encontrei foi 
-o [esse](https://gist.github.com/klmr/575726c7e05d8780505a):
+help automaticamente num makefile. Um dos mais interessantes que encontrei foi 
+[esse](https://gist.github.com/klmr/575726c7e05d8780505a):
 
 ```
 .PHONY: help
@@ -185,8 +184,7 @@ oi-mundo            Mostra mensagem de oi mundo no terminal
 
 ## Dividindo comandos em arquivos diferentes
 
-As vezes precisamos dividir os comandos entre arquivos diferentes. O make tem 
-uma opção onde é possível passar qual arquivo vai ser lido pelo comando:
+O make tem uma opção onde é possível passar qual arquivo vai ser lido pelo comando:
 
 ```
 $ make -f NomeDoArquivo.mk
@@ -195,7 +193,7 @@ $ make -f NomeDoArquivo.mk
 Por convenção usamos a extensão `.mk` para outros arquivos de makefile no mesmo projeto.
 
 Nesse [projeto de exemplo] resolvi separar o executor de comandos do makefile 
-que compila os arquivos de código fonte. Considerando a estrutura de pastas:
+que compila os arquivos de código-fonte. Considerando a estrutura de pastas:
 
 ```
 ├── src
@@ -211,7 +209,7 @@ gb:
 	@ make -f MakeGb.mk all
 ```
 
-Então ao dar um `make gb`, o make apenas compila os arquivos de código de fonte.
+Então ao dar um `make gb`, o make apenas compila os arquivos código-fonte.
 
 ## Referências 
 + [docs da ferramenta make](https://www.gnu.org/software/make/manual/)
@@ -220,7 +218,7 @@ Então ao dar um `make gb`, o make apenas compila os arquivos de código de font
 + [todo comando executado é enviado para saída padrão]
 
 [wikipedia]: https://en.wikipedia.org/wiki/Make_(software)
-[makefile deles na versão 1.9.0]: https://github.com/samuelcolvin/pydantic/blob/v1.9.0/Makefile
+[makefile na versão 1.9.0 da lib]: https://github.com/samuelcolvin/pydantic/blob/v1.9.0/Makefile
 [pydantic]: https://github.com/samuelcolvin/pydantic
 [todo comando executado é enviado para saída padrão]: https://www.gnu.org/software/make/manual/make.html#Echoing
 [projeto de exemplo]: https://github.com/rafaellcoellho/template-c-gameboy
