@@ -38,13 +38,14 @@ $ sudo du -cha --max-depth=1 / | grep -E "M|G"
 
 Meu ssd está usando 190GB, como que no total tem 406GB? 
 
-Deve ser em decorrencia do meu hd externo estar montado dentro do `\home`. 
-Olhando no [manual do du] encontramos a opção `-x`:
+Deve ser em decorrencia do meu hd externo estar montado numa pasta 
+dentro do `\home`. Olhando no [manual do du] encontrei a opção `-x`:
 
 ```
 -x, --one-file-system
       skip directories on different file systems
 ```
+
 Perfeito, agora é só adicionar a flag:
 
 ```
