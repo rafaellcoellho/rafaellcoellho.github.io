@@ -1,5 +1,6 @@
 ---
 title: "Liberando espaço no meu linux"
+date: 2022-03-27 18:42:00
 layout: post
 ---
 
