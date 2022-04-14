@@ -8,17 +8,17 @@ Construido usando Jekyll. Layout baseado no
 #### Instalar o jekyll
 
 ```
-$ gem install bundler jekyll
+$ make instalar_jekyll
 ```
 
 #### Instalar as dependencias
 
 ```
-$ bundle
+$ make instalar_deps
 ```
 
 #### Rodar localmente
 
 ```
-$ bundle exec jekyll serve --livereload --drafts
+$ make
 ```
