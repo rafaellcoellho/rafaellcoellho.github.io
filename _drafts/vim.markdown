@@ -3,20 +3,20 @@ title: "Anotações de uso sobre editor vim"
 layout: post
 ---
 
-Venho utilizado o editor de texto vim para editar minhas mensagem de commit
+Venho utilizado o editor de texto vim para escrever minhas mensagens de commit
 e arquivos simples já faz alguns meses ou mais. Sempre tive vontade 
-de aprender mais sobre ele mas sempre acabo desistindo. Esse post é uma 
+de aprender melhor a utilizar o vim mas sempre acabo desistindo. Esse post é uma 
 maneira de me motivar a aprender.
 
 Talvez as anotações não façam muito sentido para outras pessoas. Mas os 
-pontos a seguir foram aprendizados e as vezes é importante poder voltar a aqui e 
-relembrar.
+pontos a seguir são lembretes e a parte mais importante é voltar aqui e 
+relembrar esses comandos.
 
 ### Notação
 
 Existe uma documentação extensa sobre as notações que o vim usa para
 comandos do teclado mas não é minha intenção falar sobre isso aqui. Vou
-utilizar os mais convenientes:
+deixar anotado só os mais úteis:
 
 ```
 [...]
@@ -32,7 +32,7 @@ utilizar os mais convenientes:
 [...]
 ```
 
-### Movimentação
+### Movimentar
 
 - **Descer/Subir uma página**: `<C-d>/<C-u>` (**d** de down e **u** de up);
 - **Centralizar a linha atual na tela**: `zz`;
@@ -61,7 +61,7 @@ utilizar os mais convenientes:
 - **Selecionar ao redor/entre palavra**: `vaw/viw`; 
 - etc.
 
-### Misc
+### Diversos
 
 - **Sair e salvar**: `ZZ`;
 - **Sair e descartar alterações**: `ZQ`;
