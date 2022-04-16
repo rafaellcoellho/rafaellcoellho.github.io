@@ -1,11 +1,12 @@
 ---
-title: "Anotações de uso sobre editor vim"
+title: "Anotações de aprendizado ao usar o editor de texto vim"
+date: 2022-04-16 01:48:36
 layout: post
 ---
 
 Venho utilizado o editor de texto vim para escrever minhas mensagens de commit
 e arquivos simples já faz alguns meses ou mais. Sempre tive vontade 
-de aprender melhor a utilizar o vim mas sempre acabo desistindo. Esse post é uma 
+de aprender melhor a utilizar o vim, mas sempre acabo desistindo. Esse post é uma 
 maneira de me motivar a aprender.
 
 Talvez as anotações não façam muito sentido para outras pessoas. Mas os 
@@ -15,7 +16,7 @@ relembrar esses comandos.
 ### Notação
 
 Existe uma documentação extensa sobre as notações que o vim usa para
-comandos do teclado mas não é minha intenção falar sobre isso aqui. Vou
+comandos do teclado, mas não é minha intenção falar sobre isso aqui. Vou
 deixar anotado só os mais úteis:
 
 ```
@@ -36,10 +37,10 @@ deixar anotado só os mais úteis:
 
 - **Descer/Subir uma página**: `<C-d>/<C-u>` (**d** de down e **u** de up);
 - **Centralizar a linha atual na tela**: `zz`;
-- **Por linha atual no inicio/fim da tela**: `zt/zb` (**t** de top e **b**);
+- **Por linha atual no início/fim da tela**: `zt/zb` (**t** de top e **b**);
 - **Movimentar entre parágrafos**: `{` para subir e `}` para descer;
 - **Ir para o próximo `(`,`[` ou `{`**: `%`
-- **Voltar para onde estava depois de dar um `gg`/`G`**: `''` (sim, duas vezes o aspas simples).
+- **Voltar para onde estava após dar um `gg`/`G`**: `''` (sim, duas vezes a aspas simples).
 
 ### Deletar
 
@@ -66,9 +67,9 @@ deixar anotado só os mais úteis:
 - **Sair e salvar**: `ZZ`;
 - **Sair e descartar alterações**: `ZQ`;
 - **Desfazer/refazer**: `u\<C-r>`;
-- **Desfazer ações na linha enteira**: `U`;
-- **Executar novamente a ultima sequência de comandos**: `.` (sim, ponto);
-- **Acrescentar diretamente no inicio/fim da linha**: `I/A`.
+- **Desfazer ações na linha inteira**: `U`;
+- **Executar novamente a última sequência de comandos**: `.` (sim, ponto);
+- **Acrescentar diretamente no início/fim da linha**: `I/A`.
 
 Essas são as anotações por hoje. Espero juntar anotações para outras
 postagens dessas. 
