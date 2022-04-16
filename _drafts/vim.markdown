@@ -59,12 +59,31 @@ Para executar podemos fazer:
 Ou seja, podemos usar `@` para executar quantas vezes quiser os comandos salvos
 nas macros.
 
+### Pesquisar
+
+Para ignorar a diferença de maisculas e minúsculas:
+
+```
+:set ignorecase
+```
+
+Para voltar a considerar é só usar:
+
+```
+:set noignorecase
+```
+
+Atalhos:
+
+- **Palavra que esta no cursor**: `*`;
+
 ### Referências
 
 + [neovim]
 + [artigo sobre corretor ortográfico o vim]
 + [video no youtube sobre macros](https://www.youtube.com/watch?v=Hd33Q0ZjZuk)
 + [wiki sobre macros no vim](https://vim.fandom.com/wiki/Macros)
++ [artigo sobre pesquisa no vim](https://linuxize.com/post/vim-search/)
 
 [neovim]: https://neovim.io/
 [artigo sobre corretor ortográfico o vim]: https://www.linux.com/training-tutorials/using-spell-checking-vim/
