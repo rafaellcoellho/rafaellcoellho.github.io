@@ -1,5 +1,6 @@
 ---
 title: "[aprendizado vim] corretor, macros, pesquisa e buffer de arquivo"
+date: 2022-04-27 00:30:52
 layout: post
 ---
 
