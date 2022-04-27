@@ -1,5 +1,5 @@
 ---
-title: "Anotações de aprendizado ao usar o editor de texto vim"
+title: "[aprendizado vim] atalhos iniciais e notação"
 date: 2022-04-16 01:48:36
 layout: post
 ---
