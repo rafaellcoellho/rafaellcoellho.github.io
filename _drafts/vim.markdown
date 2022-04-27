@@ -1,5 +1,5 @@
 ---
-title: "[aprendizado vim] corretor orgráfico, macros"
+title: "[aprendizado vim] corretor, macros, pesquisa e buffer de arquivo"
 layout: post
 ---
 
@@ -10,12 +10,12 @@ uma "série" chamada "aprendizado vim".
 
 A ideia é utilizar o [neovim] sem nenhum plugin. Utilizar o máximo possível
 das configurações padrão e caso precise de alterações sempre fazer
-brevemente quando necessário usando `:` (dois pontos.
+brevemente quando necessário usando `:` (dois pontos).
 
 ### Corretor ortográfico
 
-Esse [artigo sobre corretor ortográfico o vim] me ajudou com o necessário.
-Posso ativar usando o comando:
+O corretor padrão do vim apenas checa por palavras erradas e não tem dicionário 
+para português do Brasil, mas é melhor que nada. Posso ativar usando o comando:
 
 ```
 :set spell spelllang=en_us
@@ -37,7 +37,7 @@ Atalhos:
 ### Macros
 
 É possível salvar uma sequência de comandos e executar novamente eles.
-Para criar fazemos um seguinte:
+Para criar fazemos o seguinte:
 
 ```
 q<letra><comandos>q
@@ -61,7 +61,7 @@ nas macros.
 
 ### Pesquisar
 
-Para ignorar a diferença de maisculas e minúsculas:
+Para ignorar a diferença de maiúsculas e minúsculas:
 
 ```
 :set ignorecase
@@ -75,7 +75,37 @@ Para voltar a considerar é só usar:
 
 Atalhos:
 
-- **Palavra que esta no cursor**: `*`;
+- **Pesquisar palavra que esta no cursor**: `*`.
+
+### Editar múltiplos arquivos (buffers)
+
+Abrindo um novo buffer de arquivo:
+
+```
+:e <caminho>
+```
+
+Para saber quais buffers existem e seus respectivos números:
+
+```
+:ls
+```
+
+Agora basta navegar entre os buffers usando:
+
+```
+:b<numero do buffer>
+```
+
+E deletar com **b**uffer **d**elete:
+
+```
+:bd<numero do buffer>
+```
+
+Atalhos:
+
+- **Trocar para o último buffer acessado**: `<C-6>`.
 
 ### Referências
 
