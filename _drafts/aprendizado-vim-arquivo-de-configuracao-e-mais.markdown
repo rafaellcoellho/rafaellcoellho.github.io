@@ -9,7 +9,7 @@ pois já tentei utilizar anteriormente outras configurações prontas como
 informação.
 
 Mas agora preciso configurar algumas alterações permanentes então chegou a
-hora de aprender mais. Por enquanto deixarei a adição de plugins para o futuro.
+hora de aprender mais.
 
 ### Arquivos de configuração
 
@@ -23,6 +23,25 @@ Como indicado por essa [man page do neovim]:
 ```
 
 No vim o mesmo arquivo é encontrado em `~/.vimrc`.
+
+### Plugins
+
+Estarei utilizando o gestor de plugins chamado [vim-plug]. Como indicado para
+instalar usei o comando:
+
+```
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+```
+
+E adiciono no inicio `~/.config/nvim/init.vim`:
+
+```
+call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
+[...]
+call plug#end()
+[...]
+```
 
 ### Comando find
 
@@ -39,7 +58,7 @@ o nome do arquivo que está sendo digitado. Então esse comando se torna
 extremamente útil quando adicionamos no nosso `init.vim` a seguinte linha:
 
 ```
-set path+=**
+:set path+=**
 ```
 
 Essa linha significa que adicionamos no `path` para ser pesquisado todos
@@ -54,6 +73,10 @@ disponíveis.
 
 + [the ultimate vim configuration]
 + [man page do neovim]
++ [vim-plug]
++ [vim-airline]
 
 [the ultimate vim configuration]: https://github.com/amix/vimrc
 [man page do neovim]: https://wiki.archlinux.org/title/Neovim
+[vim-plug]: https://github.com/junegunn/vim-plug
+[vim-airline]: https://github.com/vim-airline/vim-airline
