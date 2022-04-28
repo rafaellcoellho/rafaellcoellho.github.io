@@ -22,25 +22,67 @@ Como indicado por essa [man page do neovim]:
 	|$XDG_CONFIG_HOME|	$XDG_CONFIG_HOME/nvim/init.vim	(or init.lua)
 ```
 
-No vim o mesmo arquivo é encontrado em `~/.vimrc`.
+No vim o mesmo arquivo é encontrado em `~/.vimrc`. Aqui algumas configurações
+bobas:
+
+- `set number`: adiciona numero de linhas
 
 ### Plugins
 
-Estarei utilizando o gestor de plugins chamado [vim-plug]. Como indicado para
-instalar usei o comando:
+Estarei utilizando o gestor de plugins chamado [vim-plug]. Segui normalmente os
+comandos de instalação. E adiciono no inicio do arquivo `~/.config/nvim/init.vim`:
 
 ```
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-```
-
-E adiciono no inicio `~/.config/nvim/init.vim`:
-
-```
-call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
-[...]
+call plug#begin()
 call plug#end()
 [...]
+```
+
+Após adicionar a linha é preciso usar o seguinte comando para instalar:
+
+```
+:PlugInstall
+```
+
+Por padrão os plugins são instalados em `~/.local/share/nvim/plugged`. Para 
+desinstalar basta:
+
+```
+$ cd ~/.local/share/nvim/plugged
+$ rm -rf <pasta-do-plugin>
+```
+
+Plugins que usarei inicialmente:
+
+- [lightline] -> aquela barrinha estilosa de status;
+- [onedark] -> tema clássico do atom;
+
+Obs: resolvendo problema de modo desaparecer quando nome de arquivo for muito
+grande e mudando o tema para onedark no lightline:
+
+```vim
+" Configuração do lightline
+let g:lightline = {
+      \ 'colorscheme': 'onedark',
+      \ 'active': {
+      \   'left': [
+      \     ['mode', 'paste'],
+      \     ['filename', 'readonly', 'modified']],
+      \   'right': [
+      \     ['lineinfo'],
+      \     ['percent'],
+      \     ['filetype', 'fileencoding', 'fileformat']] },
+      \ 'component': {
+      \   'filename': '%<%{LightLineFilename()}' } }
+function! LightLineFilename()
+  let l:fname = expand('%:t')
+  let l:fpath = expand('%')
+  return &filetype ==# 'dirvish' ?
+        \   (l:fpath ==# getcwd() . '/' ? fnamemodify(l:fpath, ':~') :
+        \   fnamemodify(l:fpath, ':~:.')) :
+        \ &filetype ==# 'fzf' ? 'fzf' :
+        \ '' !=# l:fname ? fnamemodify(l:fpath, ':~:.') : '[No Name]'
+endfunction
 ```
 
 ### Comando find
@@ -75,8 +117,12 @@ disponíveis.
 + [man page do neovim]
 + [vim-plug]
 + [vim-airline]
++ [solução do problema do lightline]
 
 [the ultimate vim configuration]: https://github.com/amix/vimrc
 [man page do neovim]: https://wiki.archlinux.org/title/Neovim
 [vim-plug]: https://github.com/junegunn/vim-plug
 [vim-airline]: https://github.com/vim-airline/vim-airline
+[lightline]: https://github.com/itchyny/lightline.vim
+[onedark]: joshdick/onedark.vim
+[solução do problema do lightline]: https://github.com/itchyny/lightline.vim/issues/237
