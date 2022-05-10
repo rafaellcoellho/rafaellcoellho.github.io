@@ -3,9 +3,9 @@ title: "[aprendizado vim] arquivo de configuração, find"
 layout: post
 ---
 
-Até agora eu evitei utilizar qualquer tipo de configuração permanente
-pois já tentei utilizar anteriormente outras configurações prontas como 
-[the ultimate vim configuration] e sempre me senti sobrecarrecado com tanta
+Até agora eu evitei utilizar qualquer configuração permanente
+pois, já tentei utilizar anteriormente outras configurações prontas como
+[the ultimate vim configuration] e sempre me senti sobrecarregado com tanta
 informação.
 
 Mas agora preciso configurar algumas alterações permanentes então chegou a
@@ -29,7 +29,7 @@ No vim o mesmo arquivo é encontrado em `~/.vimrc`.
 ### Plugins
 
 Estarei utilizando o gestor de plugins chamado [vim-plug]. Segui normalmente os
-comandos de instalação. E adiciono no inicio do arquivo de configuração:
+comandos de instalação. E adiciono no início do arquivo de configuração:
 
 ```
 call plug#begin()
