@@ -9,11 +9,13 @@ pois já tentei utilizar anteriormente outras configurações prontas como
 informação.
 
 Mas agora preciso configurar algumas alterações permanentes então chegou a
-hora de aprender mais.
+hora de aprender mais. Vou adicionado configurações conforme a necessidade
+e tentando evitar algo muito complexo.
 
 ### Arquivos de configuração
 
-Como indicado por essa [man page do neovim]:
+Como indicado por essa [man page do neovim] encontramos o caminho do arquivo
+de configuração:
 
 ```
 	The config file is located at:
@@ -22,15 +24,12 @@ Como indicado por essa [man page do neovim]:
 	|$XDG_CONFIG_HOME|	$XDG_CONFIG_HOME/nvim/init.vim	(or init.lua)
 ```
 
-No vim o mesmo arquivo é encontrado em `~/.vimrc`. Aqui algumas configurações
-bobas:
-
-- `set number`: adiciona numero de linhas
+No vim o mesmo arquivo é encontrado em `~/.vimrc`.
 
 ### Plugins
 
 Estarei utilizando o gestor de plugins chamado [vim-plug]. Segui normalmente os
-comandos de instalação. E adiciono no inicio do arquivo `~/.config/nvim/init.vim`:
+comandos de instalação. E adiciono no inicio do arquivo de configuração:
 
 ```
 call plug#begin()
@@ -38,7 +37,7 @@ call plug#end()
 [...]
 ```
 
-Após adicionar a linha é preciso usar o seguinte comando para instalar:
+Após adicionar as linhas é preciso usar o seguinte comando para instalar:
 
 ```
 :PlugInstall
@@ -48,6 +47,12 @@ Por padrão os plugins são instalados em `~/.local/share/nvim/plugged`. Para
 desinstalar basta:
 
 ```
+:PlugClean
+```
+
+Ou de maneira manual:
+
+```
 $ cd ~/.local/share/nvim/plugged
 $ rm -rf <pasta-do-plugin>
 ```
@@ -55,12 +60,12 @@ $ rm -rf <pasta-do-plugin>
 Plugins que usarei inicialmente:
 
 - [lightline] -> aquela barrinha estilosa de status;
-- [onedark] -> tema clássico do atom;
+- [onedark] -> tema clássico do atom.
 
 Obs: resolvendo problema de modo desaparecer quando nome de arquivo for muito
 grande e mudando o tema para onedark no lightline:
 
-```vim
+```
 " Configuração do lightline
 let g:lightline = {
       \ 'colorscheme': 'onedark',
@@ -87,7 +92,7 @@ endfunction
 
 ### Comando find
 
-No post anterior quando falamos de buffer eu utilizei o comando `:e`
+No post anterior quando falei de buffer eu utilizei o comando `:e`
 (abreviação de `:edit`) para abrir outros arquivos. Mas uma opção melhor
 é utilizar o `:find`.
 
@@ -108,7 +113,7 @@ os diretórios e subdiretórios da pasta atual em que o vim foi invocado.
 
 A partir de agora ao invés de digitar o caminho todo até o arquivo usando
 `:edit`, apenas precisamos digitar `:find` e alguma string que esteja no
-nome do arquivo que queremos abrir e usar `<Tab>` para navegar nos opções
+nome do arquivo que queremos abrir e usar `<Tab>` para navegar nas opções
 disponíveis.
 
 ### Referências
