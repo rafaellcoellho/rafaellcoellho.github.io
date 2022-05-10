@@ -1,5 +1,6 @@
 ---
-title: "[aprendizado vim] arquivo de configuração, find"
+title: "[aprendizado vim] arquivo de configuração, plugins e find"
+date: 2022-05-09 21:37:07
 layout: post
 ---
 
