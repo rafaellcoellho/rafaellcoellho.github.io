@@ -74,6 +74,12 @@ Para voltar a considerar é só usar:
 :set noignorecase
 ```
 
+E quando não quiser mais as palavras pesquisadas destacadas:
+
+```
+:set nohlsearch
+```
+
 Atalhos:
 
 - **Pesquisar palavra que esta no cursor**: `*`.
