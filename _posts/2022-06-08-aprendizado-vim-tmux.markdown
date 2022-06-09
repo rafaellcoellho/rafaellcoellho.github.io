@@ -1,5 +1,6 @@
 ---
 title: "[aprendizado vim] tmux"
+date: 2022-06-08 23:54:16
 layout: post
 ---
 
