@@ -1,12 +1,12 @@
 ---
-title: "[projeto query+] o inicio"
+title: "[projeto query+] o início"
 layout: post
 ---
 
-Estou fazendo uma disciplina chamada Projeto de Sistemas de Informação
-nesse semestre da faculdade, onde é necessário projetar um sistema 
+Estou fazendo uma disciplina na faculdade chamada Projeto de Sistemas de
+Informação nesse semestre, onde é necessário projetar um sistema 
 simples. Acredito que seria uma ótima oportunidade para testar/treinar 
-algumas ideias de metodologia para aplicar do design de projetos pessoais 
+algumas ideias de metodologia para aplicar no design de projetos pessoais 
 no futuro. Caso a experiência seja positiva, ter o processo documentado
 ajudaria a reproduzir novamente.
 
@@ -25,12 +25,13 @@ simples e direto que possa ser implementados em pouco tempo.
 1. Escrever histórias de usuário do projeto;
 2. Utilizar [mermaid.live] para documentar/criar abstrações pro software;
 3. Aplicar os conceitos aprendidos no [livro do cosmic python sobre ddd];
-4. Criar um setup basico pra front-end com typescript, vue 3, testes
-unitários e arquitura inspirada no DDD;
-5. Descobrir um app simples para rascunhar telas do sistema web e documentar
-os designs com design simplistas das telas (com minimo css);
+4. Criar um setup básico para back-end com python;
+5. Criar um setup básico para front-end com typescript, vue 3, testes
+unitários e arquitetura inspirada no DDD;
+6. Descobrir um aplicativo simples para rascunhar telas do sistema web e documentar (com mínimo css);
 
-## Referências 
+### Referências 
+
 + [mermaid.live]
 + [livro do cosmic python sobre ddd]
 
