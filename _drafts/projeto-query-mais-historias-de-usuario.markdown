@@ -1,12 +1,13 @@
 ---
-title: "[projeto query+] epicos, histórias de usuário e atividades"
+title: "[projeto query+] épicos, histórias de usuário e atividades"
 layout: post
 ---
 
-### Conseitos
+### Conceitos
 
-Antes de se preocupar com o projeto vou deixar aqui explicado os conseitos
-básicos de metodologia ágil.
+Antes de se preocupar com o projeto vou deixar aqui explicado os conceitos
+básicos de metodologia ágil. São conceitos simples mas muito importantes na
+hora de organizar o projeto.
 
 #### épico
 
@@ -17,7 +18,7 @@ finais.
 ```
 
 A ideia é que o épico seja um objetivo sólido geral que pode ser atingido
-através da realização de atividades especificas, as histórias de usuário.
+através da realização de atividades específicas, as histórias de usuário.
 
 #### história de usuário
 
@@ -27,28 +28,34 @@ escrita a partir da perspectiva do usuário final. Seu objetivo é articular com
 de software pode gerar valor para o cliente.
 ```
 
-Toda a ideia é escrever a descrição da atividade mais especifica que o épico,
+Toda a ideia é escrever a descrição da atividade mais específica que o épico,
 e com o foco no usuário final. A linguagem precisa ser clara e objetiva e não
 deve conter conteúdo muito técnico.
 
 #### atividade
 
 As atividades servem para ser mais técnico e específico na hora de realizar a
-história de usuário. Eu gosto da ideia d fazer quase um checklist e pontuar cada
-atividade de acordo com a quantidade de trabalho necessária para concluir.
+história de usuário. Eu gosto da ideia de fazer quase um checklist e pontuar
+cada atividade conforme a quantidade de trabalho necessária para concluir.
 No final é só somar tudo, estimar a data de entrega de cada atividade e ao
-da sprint temos um burndown chart bem bacana do progresso.
+final da sprint temos um burndown chart bem bacana do progresso.
 
 ### Projeto
 
-O épico do projeto é bem simples:
+Pensei em dois épicos bem simples para o projeto:
 
 ```
 Resumo: Implementar prova de conceito
 
 Descrição: A entrega da prova de conceito para a disciplina da faculdade, onde será
 necessário fazer uma demonstração das funcionalidades básicas do sistema como adicionar
-perguntas, responder, criar disciplinas, pesquisar perguntas, etc.
+perguntas, responder, pesquisar perguntas, etc.
+
+---------------------------------------------------------------------------------------
+Resumo: Versão beta
+
+Descrição: Implementa as funcionalidades básicas restantes, como autenticação, criação de
+turmas, tag etc
 ```
 
 Agora vamos para as histórias de usuário:
@@ -121,13 +128,13 @@ considerações técnicas o mais próximo possível do que é preciso no momento
 ### Selecionando histórias de usuário
 
 Agora vem uma das horas mais importantes, o que priorizar? Como um bom
-estudante que sou, deixei para fazer toda a prova de conseito no ultimo
+estudante que sou, deixei para fazer toda a prova de conceito no último
 final de semana antes da entrega ;).
 
 Eu criei todas as histórias de usuário para uma versão inicial do projeto,
-mas mesmo essas poucas que criei não poderão ser concluidas em 2 dias.
+mas mesmo essas poucas que criei não poderão ser concluídas em 2 dias.
 
-As histórias eu que adicionarei ao épico da prova de conseito são, na ordem 
+As histórias eu que adicionarei ao épico da prova de conceito são, na ordem 
 implementação:
 
 1. Aluno enviar pergunta para turma;
@@ -141,19 +148,20 @@ implementação séria e partir para o comportamento core, que vai ser demonstra
 
 Sabendo que autenticação é complicado e que não valeria a pena mostrar apenas o
 cadastro de usuário na demonstração do projeto, por que perder tempo com ela?
-Vejo a possibilidade de ter problemas para implementar ela e acabar perdendo o
+Posso ter problemas para implementar ela e acabar perdendo o
 final de semana inteiro com isso.
 
 Estou considerando também o tempo de fazer o setup dos projetos de front-end e
 backend, criação de arquivos docker, deploy para ambiente de teste etc. Coisas que
-não podemos adicionar nas histórias de usuário pois não são pertinentes aos
-usuários finais, mas irão consumir um tempo considerável.
+não podemos adicionar nas histórias de usuário, pois não são pertinentes aos
+usuários finais, mas vão consumir um tempo considerável.
 
 Essas atividades mais técnicas como deploy e setup de ambiente vão aparecer
-dentro das histórias de usuário naturalmente, então não precisamos nos preocupar
+nas histórias de usuário naturalmente, então não precisamos nos preocupar
 com muita descrição delas.
 
 O próximo passo é começar a implementação, [ai vamos nós]...
+
 ### Referencias 
 
 + [artigo sobre histórias de usuário]
