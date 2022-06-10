@@ -1,5 +1,6 @@
 ---
 title: "[aprendizado vim] dividir painel, ctags e fzf"
+date: 2022-06-10 00:13:14
 layout: post
 ---
 
