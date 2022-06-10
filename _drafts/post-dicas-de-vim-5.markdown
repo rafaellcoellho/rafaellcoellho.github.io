@@ -35,12 +35,12 @@ Como configurado nos remapeamento de teclas:
 - `C-j` -> move para painel de cima;
 - `C-k` -> move para painel de baixo;
 - `C-l` -> move para painel da direita;
-- `C-Seta` -> ajusta tamanho dos paineis.
+- `C-Seta` -> ajusta tamanho dos painéis.
 
 ### Ctags
 
-No linux existe uma programa bem interessante chamado `ctags`. Com ele
-é possível navegar entre "entidades" num código fonte no vim, o
+No linux existe um programa bem interessante chamado `ctags`. Com ele
+é possível navegar entre "entidades" num código-fonte no vim, o
 equivalente a ctrl click numa IDE como pycharm. Para checar se está
 instalado fazemos:
 
@@ -49,7 +49,7 @@ $ ctags --version
 Exuberant Ctags 5.8
 ```
 
-Podemos rodar no código fonte que estamos editando com:
+Podemos rodar no código-fonte que estamos editando com:
 
 ```
 $ ctags -R .
@@ -94,7 +94,7 @@ $ history | fzf
 Nesse momento vou estar pesquisando todo o conteúdo do meu histórico
 de comandos do zsh. Vamos supor que eu queira saber como rodar um
 comando de build do docker, é só digitar `docker build` que o fzf vai
-me mostrar a lista desse comandos.
+me mostrar a lista desses comandos.
 
 Mas qual a diferença de só usar um `grep`? A busca fuzzy usa um algoritmo
 mais inteligente que uma pesquisa normal.
@@ -134,18 +134,18 @@ A partir desse momento podemos usar os comandos:
 -	`:Buffers` -> pesquisar arquivos abertos nos buffers do vim;
 -	`:Ag` -> pesquisar conteúdo de arquivos no projeto usando the silver searcher;
 -	`:Rg` -> pesquisar conteúdo de arquivos no projeto usando ripgrep (respeita conteúdo do git etc);
--	`:Lines` -> pesquisar conteúdo de arquivos nos buffer abertos;
+-	`:Lines` -> pesquisar conteúdo de arquivos nos buffers abertos;
 -	`:BLines` -> pesquisar conteúdo do arquivo no buffer ativo no momento;
 -	`:Commits` -> pesquisar commits apenas envolvendo o buffer ativo no momento;
 
 ### Referências
 
-+ [artigo sobre dividir paineis no vim]
++ [artigo sobre dividir painéis no vim]
 + [distrotube tutorial sobre splits]
 + [DevInsideYou tutorial sobre fzf]
 + [plugin do fzf especifico para vim]
 
-[artigo sobre dividir paineis no vim]: https://thoughtbot.com/blog/vim-splits-move-faster-and-more-naturally
+[artigo sobre dividir painéis no vim]: https://thoughtbot.com/blog/vim-splits-move-faster-and-more-naturally
 [distrotube tutorial sobre splits]: https://www.youtube.com/watch?v=Zir28KFCSQw
 [DevInsideYou tutorial sobre fzf]: https://www.youtube.com/watch?v=tB-AgxzBmH8
 [plugin do fzf especifico para vim]: https://github.com/junegunn/fzf.vim
