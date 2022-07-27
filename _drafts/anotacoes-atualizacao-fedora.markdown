@@ -1,5 +1,5 @@
 ---
-title: "Anotações da atualização do fedora 33 para o 36"
+title: "Anotações após formatar o computador"
 date: 2022-07-26 23:59:14
 layout: post
 ---
