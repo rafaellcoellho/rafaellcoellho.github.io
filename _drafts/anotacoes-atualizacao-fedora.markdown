@@ -5,14 +5,14 @@ layout: post
 ---
 
 Sempre a mesma história, resolvo formatar o computador e sempre
-esqueço quais atividades preciso executar de configuração do novo linux.
+esqueço quais atividades preciso executar na configuração do novo linux.
 O objetivo desse post é listar as atividades mais comuns para que
-em uma próxima vez seja um processo mais rápido e eficaz.
+na próxima vez seja um processo mais rápido e eficaz.
 
 ### Antes de formatar
 
 - Anotar programas com interface gráfica usados frequentemente;
-- Ir até a pasta `~/.ssh` e salvar todos os arquivos lá
+- Ir até a pasta `~/.ssh` e salvar todos os arquivos 
 presentes (salvar no drive ou algo assim);
 - Atualizar repo pessoal dos dotfiles do vim/neovim, tmux, zsh etc;
 - Exportar favoritos dos navegadores;
@@ -20,7 +20,7 @@ presentes (salvar no drive ou algo assim);
 
 ### Formatando
 
-Vou deixar aqui o link para os links que normalmente uso:
+Vou deixar aqui o link para os links de tutóriasi que normalmente uso:
 
 - [dual boot]
 - [apenas linux, mas com /home em outro hd]
@@ -30,9 +30,7 @@ Vou deixar aqui o link para os links que normalmente uso:
 - [configurar chaves ssh];
 - customizar pacote de icones para [papirus];
 - customizar tema das janelas para [um que usa material design];
-- [tmux];
-- vim/neovim;
-- zsh e [oh-my-zsh]
+- instalar e configurar [tmux], vim/neovim, zsh e [oh-my-zsh];
 - mudar tema do oh-my-zsh para [starship];
 - instalar [fonte hack do nerdfonts] e usar no emulador de terminal;
 - configurar email, usuário e editor de commits no git;
