@@ -1,19 +1,22 @@
 ---
 title: "Anotações da atualização do fedora 33 para o 36"
+date: 2022-07-26 23:59:14
 layout: post
 ---
 
 Sempre a mesma história, resolvo formatar o computador e sempre
-esqueço como fazer as atividades mais básicas de configuração do
-linux. O objetivo desse post é anotar as atividades mais comuns
-para que em uma próxima vez seja um processo mais rápido e eficaz.
+esqueço quais atividades preciso executar de configuração do novo linux.
+O objetivo desse post é listar as atividades mais comuns para que
+em uma próxima vez seja um processo mais rápido e eficaz.
 
 ### Antes de formatar
 
 - Anotar programas com interface gráfica usados frequentemente;
 - Ir até a pasta `~/.ssh` e salvar todos os arquivos lá
 presentes (salvar no drive ou algo assim);
-- Atualizar dotfiles do vim/neovim, tmux, zsh etc;
+- Atualizar repo pessoal dos dotfiles do vim/neovim, tmux, zsh etc;
+- Exportar favoritos dos navegadores;
+- Checar se não existe nenhum código não salvo nos repositórios locais.
 
 ### Formatando
 
@@ -24,62 +27,29 @@ Vou deixar aqui o link para os links que normalmente uso:
 
 ### Após formatar
 
-#### configurar chaves SSH
+- [configurar chaves ssh];
+- customizar pacote de icones para [papirus];
+- customizar tema das janelas para [um que usa material design];
+- [tmux];
+- vim/neovim;
+- zsh e [oh-my-zsh]
+- mudar tema do oh-my-zsh para [starship];
+- instalar [fonte hack do nerdfonts] e usar no emulador de terminal;
+- configurar email, usuário e editor de commits no git;
+- [instalar docker e docker-compose];
+- instalar asdf e configurar pelo menos duas versões das linguagens de
+node, python, rust, ruby e golang.
 
-Criar pasta `.ssh` em `$HOME`:
-
-```
-mkdir ~/.ssh
-```
-
-Mover chaves para `~/.ssh`:
-
-```
-mv chaves/* ~/.ssh
-```
-
-Iniciar `ssh-agent` no sistema
-
-```
-eval "$(ssh-agent -s)"
-```
-
-Adicionar chave privada ao `ssh-agent`
-
-```
-ssh-add ~/.ssh/id_ed25519
-```
-
-#### configurar icones e tema
-
-Instala os pacotes de icones e tema:
-
-```
-sudo dnf install papirus-icon-theme materia-gtk-theme
-```
-
-Após isso usando o GNOME Tweaks é só mudar os temas.
-
-#### configurar zsh e oh-my-zsh
-
-Instala os pacotes do shell:
-
-```
-sudo dnf install zsh
-```
-
-Muda o shell do sistema para o zsh:
-
-```
-chsh -s $(which zsh)
-```
-
-Após abrir outro terminal, temos que instalar
-
-### Referências
-
-+ [tutorial sobre ssh do github]
+Acho que é isso. Em futuros formatações posso escrever mais um post como esse
+para atualizar esse processo.
 
 [dual boot]: https://www.youtube.com/watch?v=6D6L9Wml1oY
 [apenas linux, mas com /home em outro hd]: https://www.youtube.com/watch?v=DpwANhOJ1Ug 
-[tutorial sobre ssh do github]: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent
+[configurar chaves ssh]: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent
+[papirus]: https://github.com/PapirusDevelopmentTeam/papirus-icon-theme
+[um que usa material design]: https://github.com/nana-4/materia-theme
+[tmux]: https://rafaellcoellho.github.io/2022/06/08/aprendizado-vim-tmux.html
+[oh-my-zsh]: https://github.com/ohmyzsh/ohmyzsh
+[starship]: https://github.com/spaceship-prompt/spaceship-prompt#oh-my-zsh
+[fonte hack do nerdfonts]: https://www.nerdfonts.com/font-downloads
+[instalar docker e docker-compose]: https://docs.docker.com/engine/install/fedora/
