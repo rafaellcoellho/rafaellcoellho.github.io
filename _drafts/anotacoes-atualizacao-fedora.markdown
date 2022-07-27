@@ -12,7 +12,7 @@ na próxima vez seja um processo mais rápido e eficaz.
 ### Antes de formatar
 
 - Anotar programas com interface gráfica usados frequentemente;
-- Ir até a pasta `~/.ssh` e salvar todos os arquivos 
+- Ir até à pasta `~/.ssh` e salvar todos os arquivos 
 presentes (salvar no drive ou algo assim);
 - Atualizar repo pessoal dos dotfiles do vim/neovim, tmux, zsh etc;
 - Exportar favoritos dos navegadores;
@@ -20,7 +20,7 @@ presentes (salvar no drive ou algo assim);
 
 ### Formatando
 
-Vou deixar aqui o link para os links de tutóriasi que normalmente uso:
+Vou deixar aqui o link para os links de tutoriais que normalmente uso:
 
 - [dual boot]
 - [apenas linux, mas com /home em outro hd]
@@ -28,7 +28,7 @@ Vou deixar aqui o link para os links de tutóriasi que normalmente uso:
 ### Após formatar
 
 - [configurar chaves ssh];
-- customizar pacote de icones para [papirus];
+- customizar pacote de ícones para [papirus];
 - customizar tema das janelas para [um que usa material design];
 - instalar e configurar [tmux], vim/neovim, zsh e [oh-my-zsh];
 - mudar tema do oh-my-zsh para [starship];
@@ -38,7 +38,7 @@ Vou deixar aqui o link para os links de tutóriasi que normalmente uso:
 - instalar asdf e configurar pelo menos duas versões das linguagens de
 node, python, rust, ruby e golang.
 
-Acho que é isso. Em futuros formatações posso escrever mais um post como esse
+Acredito ser isso. Em futuros formatações posso escrever mais um post como esse
 para atualizar esse processo.
 
 [dual boot]: https://www.youtube.com/watch?v=6D6L9Wml1oY
