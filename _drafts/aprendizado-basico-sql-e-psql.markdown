@@ -4,15 +4,10 @@ date: 2022-07-27 21:15:12
 layout: post
 ---
 
-### Instalando postgres
+### Instalando
 
-No passado eu instalaria os binários do postgres direto no meu linux,
-mas atualmente existe uma maneira mais prática de fazer isso usando docker.
-Isso me permite ter várias versões instaladas ao mesmo tempo.
-
-Até já tenho um outro [post nesse blog] explicando como configurar MySQL 8
-usando docker. Lá eu comecei baixando a imagem com a versão desejada, e vou fazer
-o mesmo aqui:
+Até já tenho um outro [post sobre como rodar MySQL 8] usando docker. Lá eu comecei
+baixando a imagem com a versão desejada, e vou fazer o mesmo aqui:
 
 ```
 docker pull postgres:14.4
@@ -26,7 +21,7 @@ como criar um volume:
 docker volume create postgres14-blogpost
 ```
 
-Agora vamos rodar o container:
+Agora é só rodar o container:
 
 ```
 docker run -d \
@@ -45,7 +40,8 @@ do argumento `-v` para o `--mount`.
 
 ### Conectando usando psql
 
-Agora é hora de testar se está tudo funcionando. Vamos instalar o pacote com psql no fedora:
+Agora é hora de testar se está tudo funcionando. Como eu não tinha instalado o pacote antes
+tive que fazer:
 
 ```
 sudo dnf install postgresql
