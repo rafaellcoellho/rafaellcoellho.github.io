@@ -6,7 +6,7 @@ layout: post
 
 ### Instalando
 
-Até já tenho um outro [post sobre como rodar MySQL 8] usando docker. Lá eu comecei
+Até já tenho outro [post sobre como rodar MySQL 8] usando docker. Lá eu comecei
 baixando a imagem com a versão desejada, e vou fazer o mesmo aqui:
 
 ```
@@ -15,13 +15,13 @@ docker pull postgres:14.4
 
 Mas resolvi fazer uma coisa diferente: ao invés de usar **bind mounts** vou usar um
 volume. Depois de uma lida na [documentação oficial do docker sobre volumes] descobri
-como criar um volume:
+como criar um:
 
 ```
 docker volume create postgres14-blogpost
 ```
 
-Agora é só rodar o container:
+Agora é só rodar o contêiner:
 
 ```
 docker run -d \
@@ -35,12 +35,12 @@ docker run -d \
 Os argumentos já foram explicados no [post sobre como rodar MySQL 8], mas houve a troca
 do argumento `-v` para o `--mount`.
 
-+ **--mount**: *type* indica que usaremos um volume para guardas informações externas ao container,
++ **--mount**: *type* indica que usaremos um volume para guardas informações externas ao contêiner,
 *source* é o nome do volume e *target* é a pasta padrão que o postgres usa para armazenar os dados.
 
 ### Conectando usando psql
 
-Agora é hora de testar se está tudo funcionando. Como eu não tinha instalado o pacote antes
+Agora é hora de testar se está tudo funcionando. Como eu não instalei o pacote antes
 tive que fazer:
 
 ```
@@ -53,13 +53,13 @@ Podemos conectar com o comando:
 psql -h localhost -p 5432 -U postgres -W
 ```
 
-Outra maneira é utilizando uma URI:
+Outra maneira é utilizando um URI:
 
 ```
 psql postgresql://postgres:root@localhost:5432
 ```
 
-Agora é só digitar a senha que foi definida pela variável `POSTGRES_PASSWORD`.
+Agora é só digitar a senha definida pela variável `POSTGRES_PASSWORD`.
 
 ### Comandos do psql
 
