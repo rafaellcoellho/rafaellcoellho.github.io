@@ -1,5 +1,5 @@
 ---
-title: "Rodando PostgresSQL 14 usando docker no linux"
+title: "Rodando PostgreSQL 14 usando docker no linux"
 date: 2022-07-27 21:15:12
 layout: post
 ---
