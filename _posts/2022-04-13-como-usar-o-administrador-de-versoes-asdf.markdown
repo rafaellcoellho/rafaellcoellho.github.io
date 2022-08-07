@@ -47,7 +47,22 @@ até lá e rodar `asdf local ruby 1.8.6`.
 Por último, mas não menos importante, é sempre bom lembrar de dar update nos plugins
 com `asdf plugin-update --all` e dar update no próprio asdf com `asdf update`. 
 
- 
+### Comandos do asdf
+
+- `asdf plugin-list` -> lista todos os plugins instalados;
+- `asdf list-all <linguagem>` -> lista todas as tags de versões da linguagem;
+- `asdf list <linguagem>` -> lista versões instaladas da linguagem;
+- `asdf install <linguagem> <tag>` -> instala versão da linguagem para ser utilizada;
+- `asdf global <linguagem> <tag>` -> seleciona a versão da linguagem para ser global no sistema;
+- `asdf local <linguagem> <tag>` -> seleciona a versão da linguagem para ser local no path em que
+está executando, criando o arquivo `.tool-versions` para sinalizar as versões;
+- `asdf current` -> mostra as versões de cada linguagem ativas naquele momento e o caminho para os arquivos
+`tool-versions`;
+- `asdf which <linguagem> <tag>` -> mostrar caminho do executável para versão da linguagem;
+- `asdf reshim <linguagem> <tag>` -> recria os shims da versão da linguagem;
+- `asdf plugin-update --all` -> atualizar os plugins instalados;
+- `asdf update` -> atualizar asdf;
+
 ## Referências 
 + [asdf]
 + [episódio do akitando](https://www.youtube.com/watch?v=epiyExCyb2s)
