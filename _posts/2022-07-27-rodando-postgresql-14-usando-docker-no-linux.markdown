@@ -61,7 +61,7 @@ psql postgresql://postgres:root@localhost:5432
 
 Agora é só digitar a senha definida pela variável `POSTGRES_PASSWORD`.
 
-### Comandos do psq
+### Comandos do psql
 
 - `\c <nome_do_banco>` -> conectar a um banco;
 - `\l` -> listar todos os bancos;
