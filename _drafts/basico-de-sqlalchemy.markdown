@@ -1,5 +1,5 @@
 ---
-title: "Básico sobre SQLAlchemy"
+title: "[projeto agenda] cli com argparse e migrations com alembic"
 layout: post
 ---
 
@@ -119,29 +119,32 @@ CREATE TABLE contato (
 );
 ```
 
-**explicação sobre o sql**
+A sintáxe básica do `CREATE TABLE` é essa:
+
+```sql
+CREATE TABLE [IF NOT EXISTS] nome_da_tabela (
+  nome_da_coluna_1 tipo(tamanho) constraint,
+  nome_da_coluna_2 tipo(tamanho) constraint,
+  contraints_da_tabela
+);
+```
+
+Conhecendo a sintaxe, o comando passa a ser muito simples de entender.
 
 Por ultimo é só rodar sem a flag `--sql` que o alembic vai rodar os scripts contra o banco
 informado na sql.
-
-### Adicionar contato
-
-### Deletar contato
-
-### Editar contato
-
-### Visualizar contato
 
 ### Referências
 
 + [documentação do SQLAlchemy]
 + [documentação do argparse]
 + [tutorial básico sobre argparse do anthonywritescode]
-+ [pequeno esqueleto da aplicação]
++ [tutoriais de postgresql]
 
 [documentação do SQLAlchemy]: https://www.sqlalchemy.org/
 [documentação do argparse]: https://docs.python.org/3/howto/argparse.html#
 [tutorial básico sobre argparse do anthonywritescode]: https://www.youtube.com/watch?v=-Sgw-6a1HjU
-[pequeno esqueleto da aplicação]: https://github.com/rafaellcoellho/blog-basico-sqlalchemy/commit/bd8ca069f39d6ef5a589651a3c49a2cec9d4af5b
+[tutoriais de postgresql]: https://www.postgresqltutorial.com/
 
+[pequeno esqueleto da aplicação]: https://github.com/rafaellcoellho/blog-basico-sqlalchemy/commit/bd8ca069f39d6ef5a589651a3c49a2cec9d4af5b
 [post anterior]: https://rafaellcoellho.github.io/2022/07/27/rodando-postgresql-14-usando-docker-no-linux.html
