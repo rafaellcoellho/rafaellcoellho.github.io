@@ -63,11 +63,22 @@ Agora é só digitar a senha definida pela variável `POSTGRES_PASSWORD`.
 
 ### Comandos do psql
 
-- `\l` -> listar todos os bancos;
 - `\c <nome_do_banco>` -> conectar a um banco;
+- `\l` -> listar todos os bancos;
 - `\dt` -> listar todas as tabelas do banco;
-- `\d <nome_da_tabela>` -> inspecionar o schema da tabela;
+- `\d <nome_da_tabela>` -> descreve uma tabela no banco;
+- `\dn` -> listar todos os schemas do banco;
+- `\df` -> listar todas as funções no banco;
+- `\dv` -> listar todas as views no banco;
+- `\du` -> listar todos os usuários e suas respectivas `roles`;
+- `\g` -> executar novamente o comando anterior;
+- `\s` -> mostrar o histórico de comandos;
+- `\i <nome_de_arquivo>` -> executar comandos vindos de um arquivo;
+- `\e` -> editar um comando no editor de texto definido pela variável de ambiente `EDITOR`;
+- `\ef <nome_da_funcao>` -> editar uma função do banco de dados usando editor de texto
+definido pela variável `EDITOR`
 - `\timing` -> habilitar a opção de mostrar tempo que cada query leva;
+- `\?` -> ajuda com os comandos do psql;
 - `\q` -> sair.
 
 ### Referências
