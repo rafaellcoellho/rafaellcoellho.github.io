@@ -1,7 +1,6 @@
 # Blog do Rafael Coelho
 
-Construido usando Jekyll. Layout baseado no
-[blog do Drew DeVault's](https://drewdevault.com/).
+Meu blog implementado em jekyll.
 
 ## Configuração
 
