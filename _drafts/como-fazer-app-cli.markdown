@@ -1,5 +1,6 @@
 ---
-title: "Como criar cli em python"
+title: "Usando argparse, tox e setuptools para fazer aplicativo de cli em python"
+date: 2022-10-16 14:45:00
 layout: post
 ---
 
