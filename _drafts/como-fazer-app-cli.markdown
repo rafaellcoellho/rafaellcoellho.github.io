@@ -10,23 +10,23 @@ deployar um aplicativo de linha de comando.
 ### Criando aplicação
 
 O python já vem com uma biblioteca para facilitar a criação de aplicações de linha
-de comando chamada argparse. Criando o modulo principal:
+de comando chamada argparse. Vou começar criando o modulo principal:
 
 ```
 └── cli
-    ├── cli.py
+    ├── main.py
     └── __init__.py
 ```
 
-O arquivo `cli.py` vai conter todo o código:
+O arquivo `main.py` vai conter todo o código:
 
 ```python
 import argparse
 
 
 def main(argv=None):
-    parser = argparse.ArgumentParser(prog='hello')
-    parser.add_argument('name')
+    parser = argparse.ArgumentParser(prog="greet")
+    parser.add_argument("name")
     args = parser.parse_args(argv)
 
     print(f"hello {args.name}")
@@ -34,7 +34,7 @@ def main(argv=None):
     return 0
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     exit(main())
 ```
 
@@ -46,8 +46,8 @@ hello rafael
 ```
 
 Sucesso! Mas caso a minha aplicação comece a ficar mais complexa não vou querer
-testar manualmente todas as possibilidades. Vou criar um teste unitário para
-garantir que essa lógica esteja sempre correta.
+testar manualmente todas as possibilidades. Vou criar um teste para garantir que
+essa lógica esteja sempre correta.
 
 ### Escrevendo testes
 
@@ -62,8 +62,8 @@ Criando o múdulo de testes:
     └── test_cli.py
 ```
 
-Utilizei a própria função main para passar os argumentos e o pytest também
-ajuda a checar o `stdout`:
+Utilizei a própria função `main` para passar os argumentos e o pytest também
+ajuda a checar o `stdout` utilizando o argumento `capsys`:
 
 ```python
 from cli.main import main
@@ -81,6 +81,7 @@ Usando pytest:
 $ pytest
 ============================= test session starts ==============================
 platform linux -- Python 3.10.4, pytest-7.1.3, pluggy-1.0.0
+[...]
 collected 1 item                                                               
 
 tests/test_cli.py .                                                      [100%]
@@ -90,14 +91,14 @@ tests/test_cli.py .                                                      [100%]
 
 Mas ter que rodar o pytest intalado globalmente não é tão bom assim. Prefiro utilizar
 a ferramenta tox, que vai automatizar esses testes serem executados em vários ambientes
-diferentes. Mas antes disso é preciso empacotar a nossa aplicação utilizando
+diferentes. Mas antes disso é preciso empacotar a nossa aplicação utilizando o
 `setuptoopls`.
 
 ### Empacotando usando setuptools
 
-No python é preciso criar 3 arquivos de configuração para facilitar o empacotamento
-do aplicativo, são eles: `setup.py`, `setup.cfg` e `pyproject.toml`. Após criar eles
-na raiz do projeto, só é preciso preencher o `setup.py` e `pyproject.toml` com valores
+O `setuptools` precisa de alguns arquivos de configuração para empacotar
+o aplicativo, são eles: `setup.py`, `setup.cfg` e `pyproject.toml`. Após criar eles
+na raiz do projeto, é preciso preencher o `setup.py` e `pyproject.toml` com valores
 padrão:
 
 ```python
@@ -156,7 +157,7 @@ hello rafael
 
 Finalmente posso usar o tox para rodar os testes.
 
-### Adicionando tox
+### Rodando testes com tox
 
 Adicionando o arquivo `tox.ini` na raiz do projeto com uma configuração bem básica:
 
@@ -207,7 +208,7 @@ repos:
         exclude: tests
 ```
 
-A ideia é usar o pre-commit para sempre utilizar o mypy e black antes de
+A ideia é usar o `pre-commit` para sempre utilizar o `mypy` e `black` antes de
 cada commit. Para iniciar no projeto basta:
 
 ```
