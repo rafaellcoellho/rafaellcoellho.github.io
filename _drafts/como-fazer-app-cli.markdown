@@ -89,16 +89,108 @@ tests/test_cli.py .                                                      [100%]
 
 Mas ter que rodar o pytest intalado globalmente não é tão bom assim. Prefiro utilizar
 a ferramenta tox, que vai automatizar esses testes serem executados em vários ambientes
-diferentes.
+diferentes. Mas antes disso é preciso empacotar a nossa aplicação utilizando setuptoopls.
+
+### Empacotando usando setuptools
+
+No python é preciso criar 3 arquivos de configuração para facilitar o empacotamento
+do aplicativo, são eles: `setup.py`, `setup.cfg` e `pyproject.toml`. Após criar eles
+na raiz do projeto, só é preciso preencher o `setup.py` e `pyproject.toml` com valores
+padrão:
+
+```python
+from setuptools import setup
+
+setup()
+```
+
+```toml
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = ["setuptools", "wheel"]
+```
+
+Agora vou criar o arquivo principal, `setup.cfg`:
+
+```ini
+[metadata]
+name = greet
+version = 0.0.1
+
+[options]
+packages = cli
+
+[options.entry_points]
+console_scripts =
+    greet = cli.main:main
+```
+
+Agora basta usar o comando build:
+
+```
+$ python -m build
+* Creating virtualenv isolated environment...
+* Installing packages in isolated environment... (setuptools, wheel)
+* Getting dependencies for sdist...
+[...]
+Successfully built greet-0.0.1.tar.gz and greet-0.0.1-py3-none-any.whl
+```
+
+Temos o nosso pacote na pasta `dist/`. Para instalar basta usar pip:
+
+```
+$ pip install dist/greet-0.0.1-py3-none-any.whl 
+Processing ./dist/greet-0.0.1-py3-none-any.whl
+Installing collected packages: greet
+Successfully installed greet-0.0.1
+```
+
+Agora a aplicação foi instalada, basta usar:
+
+```
+$ greet rafael
+hello rafael
+```
+
+Finalmente posso usar o tox para rodar os testes.
 
 ### Adicionando tox
 
-TODO
+Adicionando o arquivo `tox.ini` na raiz do projeto com uma configuração bem básica:
+
+```ini
+[tox]
+envlist = py310
+
+[testenv]
+deps = pytest
+commands =
+    pytest {posargs:tests}
+```
+
+Para rodar os testes em todos os ambientes disponíveis na sua máquina:
+
+```
+$ tox --skip-missing-interpreters
+```
+
+Caso eu queira rodar um teste especifico em um ambiente especifico:
+
+```
+$ tox -e py310 -- tests/test_cli.py::test_hello_world_cli
+```
 
 ### Referências
 
 + [tutorial do argparse]
 + [testar stdout usando pytest]
++ [documentação do tox]
++ [tutorial explicando como empacotar aplicativos python]
++ [página da documentação do build]
+
 
 [tutorial do argparse]: https://docs.python.org/3/library/argparse.html
 [testar stdout usando pytest]: https://docs.pytest.org/en/7.1.x/how-to/capture-stdout-stderr.html
+[documentação do tox]: https://tox.wiki/en/latest/
+[tutorial explicando como empacotar aplicativos python]: https://pybit.es/articles/how-to-package-and-deploy-cli-apps/
+[página da documentação do build]: https://pypa-build.readthedocs.io/en/stable/
