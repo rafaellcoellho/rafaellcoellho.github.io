@@ -89,7 +89,8 @@ tests/test_cli.py .                                                      [100%]
 
 Mas ter que rodar o pytest intalado globalmente não é tão bom assim. Prefiro utilizar
 a ferramenta tox, que vai automatizar esses testes serem executados em vários ambientes
-diferentes. Mas antes disso é preciso empacotar a nossa aplicação utilizando setuptoopls.
+diferentes. Mas antes disso é preciso empacotar a nossa aplicação utilizando
+`setuptoopls`.
 
 ### Empacotando usando setuptools
 
@@ -104,7 +105,7 @@ from setuptools import setup
 setup()
 ```
 
-```toml
+```ini
 [build-system]
 build-backend = "setuptools.build_meta"
 requires = ["setuptools", "wheel"]
@@ -180,6 +181,51 @@ Caso eu queira rodar um teste especifico em um ambiente especifico:
 $ tox -e py310 -- tests/test_cli.py::test_hello_world_cli
 ```
 
+### Black, mypy e pre-commit
+
+Também vou adicionar algumas ferramentas para ajudar no desenvolvimento. Mais
+um arquivo de configuração na raiz do projeto chamado `.pre-commit-config.yaml`:
+
+```yaml
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.2.0
+    hooks:
+    -   id: trailing-whitespace
+    -   id: end-of-file-fixer
+    -   id: check-yaml
+-   repo: https://github.com/psf/black
+    rev: 22.10.0
+    hooks:
+    -   id: black
+-   repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v0.982
+    hooks:
+    -   id: mypy
+        additional_dependencies: [types-all]
+        exclude: tests
+```
+
+A ideia é usar o pre-commit para sempre utilizar o mypy e black antes de
+cada commit. Para iniciar no projeto basta:
+
+```
+$ pre-commit install
+pre-commit installed at .git/hooks/pre-commit
+```
+
+Caso queira executar sem fazer fazer commit basta usar:
+
+```
+$ pre-commit run --all-files
+```
+
+### Conclusão
+
+Esse foi o esqueleto básico de uma aplicação de linha de comando usando python.
+O código fonte mostrado nesse post se encontra no
+[meu github](https://github.com/rafaellcoellho/exemplo-cli-python).
+
 ### Referências
 
 + [tutorial do argparse]
@@ -187,6 +233,7 @@ $ tox -e py310 -- tests/test_cli.py::test_hello_world_cli
 + [documentação do tox]
 + [tutorial explicando como empacotar aplicativos python]
 + [página da documentação do build]
++ [documentação do pre-commit]
 
 
 [tutorial do argparse]: https://docs.python.org/3/library/argparse.html
@@ -194,3 +241,4 @@ $ tox -e py310 -- tests/test_cli.py::test_hello_world_cli
 [documentação do tox]: https://tox.wiki/en/latest/
 [tutorial explicando como empacotar aplicativos python]: https://pybit.es/articles/how-to-package-and-deploy-cli-apps/
 [página da documentação do build]: https://pypa-build.readthedocs.io/en/stable/
+[documentação do pre-commit]: https://pre-commit.com/
