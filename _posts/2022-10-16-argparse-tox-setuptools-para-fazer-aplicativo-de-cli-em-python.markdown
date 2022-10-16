@@ -4,7 +4,7 @@ date: 2022-10-16 14:45:00
 layout: post
 ---
 
-Vou escever um aplicativo "hello world" para aprender como escrever, testar e
+Vou escrever um aplicativo "hello world" para aprender como escrever, testar e
 deployar um aplicativo de linha de comando. 
 
 ### Criando aplicação
@@ -51,7 +51,7 @@ essa lógica esteja sempre correta.
 
 ### Escrevendo testes
 
-Criando o múdulo de testes:
+Criando o mudulo de testes:
 
 ```
 ├── cli
@@ -89,7 +89,7 @@ tests/test_cli.py .                                                      [100%]
 ============================== 1 passed in 0.01s ===============================
 ```
 
-Mas ter que rodar o pytest intalado globalmente não é tão bom assim. Prefiro utilizar
+Mas ter que rodar o pytest instalado globalmente não é tão bom assim. Prefiro utilizar
 a ferramenta tox, que vai automatizar esses testes serem executados em vários ambientes
 diferentes. Mas antes disso é preciso empacotar a nossa aplicação utilizando o
 `setuptoopls`.
@@ -177,7 +177,7 @@ Para rodar os testes em todos os ambientes disponíveis na sua máquina:
 $ tox --skip-missing-interpreters
 ```
 
-Caso eu queira rodar um teste especifico em um ambiente especifico:
+Caso eu queira rodar um teste especifico em um ambiente específico:
 
 ```
 $ tox -e py310 -- tests/test_cli.py::test_hello_world_cli
@@ -216,7 +216,7 @@ $ pre-commit install
 pre-commit installed at .git/hooks/pre-commit
 ```
 
-Caso queira executar sem fazer fazer commit basta usar:
+Caso queira executar sem fazer commit basta usar:
 
 ```
 $ pre-commit run --all-files
@@ -225,7 +225,7 @@ $ pre-commit run --all-files
 ### Conclusão
 
 Esse foi o esqueleto básico de uma aplicação de linha de comando usando python.
-O código fonte mostrado nesse post se encontra no
+O código-fonte mostrado nesse post se encontra no
 [meu github](https://github.com/rafaellcoellho/exemplo-cli-python).
 
 ### Referências
