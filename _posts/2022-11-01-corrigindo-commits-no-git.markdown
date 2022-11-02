@@ -1,6 +1,6 @@
 ---
 title: "Corrigindo commits no git"
-date: 2022-10-31 23:45:15
+date: 2022-11-01 23:52:15
 layout: post
 ---
 
