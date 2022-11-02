@@ -1,12 +1,10 @@
 ---
-title: "Corrigindo commits no git"
+title: "Corrigindo mensagem de commit no git"
 date: 2022-11-01 23:52:15
 layout: post
 ---
 
-Após ter feito todo o trabalho em uma branch separada da master,
-é preciso submeter o Pull Request para a `master`. Eu tenho os seguintes
-commits no meu projeto:
+Eu tenho os seguintes commits na minha branch:
 
 ```
 $ git log --oneline
@@ -17,29 +15,29 @@ $ git log --oneline
 e63336d corrige imports do arquivo de erros
 ```
 
-Primeira coisa que vou fazer é corrigir o erro no commit `936cfd1`, mudar a
-palavra "pasear" por "parsear". Se esse tivessse sido o ultimo commit
-seria possível usar o seguinte comando:
+O que eu preciso fazer é corrigir o erro no commit `936cfd1`, mudar a
+palavra "pasear" para "parsear". Se esse tivessse sido o ultimo commit
+seria possível apenas usar o seguinte comando:
 
 ```
 $ git commit --amend
 ```
 
 Onde o git abriria um editor com o texto antigo, eu corrigiria e salvaria.
-Mas esse não é o caso, vou precisar uma ferramenta mais poderosa de edição
+Mas esse não é o caso, vou precisar de uma ferramenta mais poderosa de edição
 do histórico:
 
 ```
 $ git rebase -i HEAD~2^
 ```
 
-- **rebase**: é o comando que muda a "base" da nossa branch para outro commit;
+- **rebase**: é o comando que muda a "base" da nossa branch;
 - **-i**: vem de `interactive`, essa opção faz com que seja possível instruir o git a parar
 em cada commit no rebase para realizar alguma ação específica;
 - **HEAD~2^**: essa é uma notação para selecionar uma série de commits, nesse caso
-os ultimos 3 commits;
+os ultimos 4 commits;
 
-O comando inteiro quer dizer o seguinte `selecione os ultimos 3 commits da minha branch e
+O comando inteiro quer dizer o seguinte: `selecione os ultimos 4 commits da minha branch
 para um rebase interativo`. Após executar o git vai abrir o editor para descrevermos o que
 queremos fazer com esses commits:
 
@@ -87,13 +85,13 @@ a4ecd76 remove função de parsear comandos, corrige if da função de comandos
 
 Sucesso! Importante reparar que o hash dos commits mudou, pois o git destruiu os
 commits e recriou eles. Com essa ferramenta não é possível só corrigir a mensagem
-de commit, mas também o conteúdo do commit. Explorar os outros commandos do `rebase -i`
+de commit, mas também o conteúdo do commit. Aprender os outros commandos do `rebase -i`
 pode trazer muitas ferramentas úteis.
 
 Caso já tenha dado push nos commits antes de fazer essa correção, será preciso usar
 `git push -f origin branch`. Então é muito importante ter cuidado com esse tipo
 de alteração caso esteja trabalhando com outras pessoas na mesma branch, o ideal
-seria fazer esse rebase apenas antes de dar push.
+seria fazer esse rebase antes de dar push.
 
 ### Referências
 
