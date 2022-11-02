@@ -16,7 +16,7 @@ e63336d corrige imports do arquivo de erros
 ```
 
 O que eu preciso fazer é corrigir o erro no commit `936cfd1`, mudar a
-palavra "pasear" para "parsear". Se esse tivessse sido o ultimo commit
+palavra "pasear" para "parsear". Se esse tivesse sido o último commit
 seria possível apenas usar o seguinte comando:
 
 ```
@@ -35,9 +35,9 @@ $ git rebase -i HEAD~2^
 - **-i**: vem de `interactive`, essa opção faz com que seja possível instruir o git a parar
 em cada commit no rebase para realizar alguma ação específica;
 - **HEAD~2^**: essa é uma notação para selecionar uma série de commits, nesse caso
-os ultimos 4 commits;
+os últimos 4 commits;
 
-O comando inteiro quer dizer o seguinte: `selecione os ultimos 4 commits da minha branch
+O comando inteiro quer dizer o seguinte: `selecione os últimos 4 commits da minha branch
 para um rebase interativo`. Após executar o git vai abrir o editor para descrevermos o que
 queremos fazer com esses commits:
 
@@ -72,7 +72,7 @@ Once you are satisfied with your changes, run
   git rebase --continue
 ```
 
-Vou dar o `git commit --amend`, mudar a o texto, e em seguida executar
+Vou dar o `git commit --amend`, mudar o texto e em seguida executar
 `git rebase --continue` como indicado. Ao verificarmos os commits temos:
 
 ```
@@ -85,7 +85,7 @@ a4ecd76 remove função de parsear comandos, corrige if da função de comandos
 
 Sucesso! Importante reparar que o hash dos commits mudou, pois o git destruiu os
 commits e recriou eles. Com essa ferramenta não é possível só corrigir a mensagem
-de commit, mas também o conteúdo do commit. Aprender os outros commandos do `rebase -i`
+de commit, mas também o conteúdo do commit. Aprender os outros comandos do `rebase -i`
 pode trazer muitas ferramentas úteis.
 
 Caso já tenha dado push nos commits antes de fazer essa correção, será preciso usar
