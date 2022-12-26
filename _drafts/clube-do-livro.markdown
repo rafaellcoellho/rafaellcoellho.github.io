@@ -1,6 +1,6 @@
 ---
 title: "[clube do livro]"
-date: 2022-12-22 00:00:00
+date: 2022-12-26 00:00:00
 layout: post
 ---
 
@@ -10,11 +10,20 @@ exercícios, também suas resoluções.
 
 ### Preparações
 
-Antes de começar o conteúdo, preciso criar o banco de dados local e instalar
-um gerenciador de banco de dados com interface gráfica. Para criar localmente
-o ambiente o docker é a ferramenta de preferência e eu já escrevi como fazer
-isso [nesse post]. Para gerenciar gráficamente o db vou utilizar o incrível
-DBeaver. Também fiz um [post explicando como instalar e atualizar] no fedora.
+Antes de começar o conteúdo, preciso instalar o SGBD e uma ferramenta
+para interagir com o banco usando interface gráfica. Para criar localmente o ambiente
+o docker é a ferramenta de preferência e eu já escrevi como fazer  isso [nesse post].
+Para interagir gráficamente com o SGBD vou utilizar o incrível DBeaver. Também fiz um 
+[post explicando como instalar e atualizar] no fedora.
+
+### Conceitos básicos
+
+O primeiro livro a ser lido é [guia mangá de banco de dados]. O primeiro capítulo é apenas
+uma introdução boba sobre o que é um banco de dados. Já no segundo capítulo temos alguns
+conceitos iniciais interessantes:
+
+- **record**: cada linha da tabela;
+- **field**: uma coluna de uma linha;
 
 ### Referências
 
