@@ -38,14 +38,16 @@ conceitos iniciais interessantes.
   - uma unidade de dados ou registro é chamada de linha
   - cada item de dados ou campo é chamado de coluna
 
-11. Alguns campos tem papel importante no banco de dados, como o campo chamado de chave (key)
-12. O campo de código de produto é chamado de chave primaria (primary key)
+9. Alguns campos tem papel importante no banco de dados, como o campo chamado de chave (key)
+10. O campo de código de produto é chamado de chave primaria (primary key)
 
-13. O modelo de dados relacional é projetado de forma que se possa processas os dados com operações matemáticas
-14. Uma operação para extrair uma coluna é chamado de projeção
-15. São oito operações matemáticas possíveis
-16. Outra vantagem do moeldo relacional é que se pode processar os dados combinando as operações
+11. O modelo de dados relacional é projetado de forma que se possa processas os dados com operações matemáticas
+12. Uma operação para extrair uma coluna é chamado de projeção
+13. São oito operações matemáticas possíveis
+14. Outra vantagem do moeldo relacional é que se pode processar os dados combinando as operações
 
+15. Existem oito tipos de operações principais que podemos usar, e elas se dividem em duas categorias: de conjunto e relacionais
+16. As operações de união, diferença, intersecção e produto cartesiano são chamadas de operações de conjunto. 
 
 ### Referências
 
