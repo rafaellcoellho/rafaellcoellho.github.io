@@ -1,13 +1,3 @@
-title: Blog do Rafael Coelho
-email: rafaellcoellho@gmail.com
-description: ""
-
-baseurl: ""
 url: ""
-github_username: rafaellcoellho
-
-theme: minima
-plugins:
-  - jekyll-feed
-
-author: ""
+baseurl: ""
+title: "Blog do Rafael Coelho"

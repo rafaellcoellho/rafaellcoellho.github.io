@@ -1,9 +1,3 @@
-# Blog do Rafael Coelho
-
-Meu blog implementado em jekyll.
-
-## Configuração
-
 #### Instalar o jekyll
 
 ```
